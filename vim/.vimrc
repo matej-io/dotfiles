@@ -56,4 +56,4 @@ imap <c-s> <Esc>:update<cr>gi
 
 vnoremap ,b :!vimtrans<cr>
 
-source ~/.config/dotfiles/.sharedvimrc
+source ~/.config/dotfiles/vim/.sharedvimrc
