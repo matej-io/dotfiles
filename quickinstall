@@ -6,7 +6,7 @@ cp ~/.config/dotfiles/vim/.vimrc_home ~/.vimrc
 
 # Fish install
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak
-cp ~/.config/dotfiles/fish/.config_home.fish ~/.config/fish/config.fish
+cp ~/.config/dotfiles/fish/config_home.fish ~/.config/fish/config.fish
 
 mv ~/.config/fish/functions ~/.config/fish/functions_bak
 mkdir -pv ~/.config/fish/functions/
