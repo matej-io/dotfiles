@@ -6,10 +6,14 @@ set tabstop=3
 set shiftwidth=0
 set softtabstop=0
 
-imap <c-j> <esc>
+imap <c-j> <esc>l
 nmap <c-j> <esc>
 vmap <c-j> <esc>
 cmap <c-j> <esc>
+imap <c-h> <esc>
+nmap <c-h> <esc>
+vmap <c-h> <esc>
+cmap <c-h> <esc>
 
 " Insert forgotten let for constant
 imap <c-l> <esc>bilet <esc>wwi
@@ -18,10 +22,6 @@ nmap <c-l> bilet <esc>ww
 " Insert missed open bracket in parameter
 imap <c-9> <esc>F:lli(<esc>f,i
 nmap <c-9> F:lli(<esc>f,
-
-" Insert missed self. at the beginning of expression
-imap <c-h> <esc>biself.<esc>ww
-nmap <c-h> biself.<esc>ww
 
 " Quick search to center result on a page
 nnoremap * *zz
@@ -33,10 +33,6 @@ nnoremap N Nzz
 inoremap <c-p> <esc>pa
 
 nnoremap zz zt<c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y>
-
-" Faster up or down by 3 lines
-nmap <c-j> 4j
-nmap <c-k> 4k
 
 " Quick undo from insert mode
 imap <c-u> <esc>ua
