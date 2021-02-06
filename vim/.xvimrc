@@ -6,15 +6,6 @@ set tabstop=3
 set shiftwidth=0
 set softtabstop=0
 
-imap <c-j> <esc>l
-nmap <c-j> <esc>
-vmap <c-j> <esc>
-cmap <c-j> <esc>
-imap <c-h> <esc>
-nmap <c-h> <esc>
-vmap <c-h> <esc>
-cmap <c-h> <esc>
-
 " Insert forgotten let for constant
 imap <c-l> <esc>bilet <esc>wwi
 nmap <c-l> bilet <esc>ww

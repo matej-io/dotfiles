@@ -8,7 +8,7 @@ for mode in insert default visual
 	bind -M $mode \cf forward-char
 end
 bind -M insert \; forward-char
-bind -M insert \cj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
+bind -M insert \' forward-char
 
 abbr -a l ls -al
 abbr -a po git push -u origin
