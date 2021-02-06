@@ -11,6 +11,6 @@ bind -M insert \; forward-char
 bind -M insert \' forward-char
 
 abbr -a l ls -al
-abbr -a po git push -u origin
-abbr -a p git pull
+abbr -a orig git push -u origin
+abbr -a orig d cd ~/.config/dotfiles
 
