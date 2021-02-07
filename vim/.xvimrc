@@ -6,9 +6,23 @@ set tabstop=3
 set shiftwidth=0
 set softtabstop=0
 
-" Insert forgotten let for constant
-imap <c-l> <esc>bilet <esc>wwi
-nmap <c-l> bilet <esc>ww
+" Moving within insert mode
+inoremap <c-l> <esc>lli
+inoremap <c-h> <esc>i
+inoremap <c-w> <esc>lwi
+inoremap <c-b> <esc>bi
+inoremap <c-j> <esc>jli
+inoremap <c-k> <esc>kli
+nnoremap <c-l> li
+nnoremap <c-h> hi
+nnoremap <c-w> wi
+nnoremap <c-b> bi
+nnoremap <c-j> <esc>jli
+nnoremap <c-k> <esc>kli
+
+" Moving visual block up or down
+vnoremap <c-k> dkkp`[V`]
+vnoremap <c-j> dp`[V`]
 
 " Insert missed open bracket in parameter
 imap <c-9> <esc>F:lli(<esc>f,i
@@ -28,3 +42,8 @@ nnoremap zz zt<c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y>
 " Quick undo from insert mode
 imap <c-u> <esc>ua
 
+" Breaks apart Swift parentheses into very readable format
+vnoremap <space>b :!/Users/matej/bin/vimtrans<cr>
+
+" Formats whole Swift file
+nnoremap <space>f :%!swift-format format<cr>

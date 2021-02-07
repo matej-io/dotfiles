@@ -54,7 +54,6 @@ nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 nmap <c-s> :update<cr>
 imap <c-s> <Esc>:update<cr>gi
 
-vnoremap ,b :!vimtrans<cr>
 
 source ~/.config/dotfiles/vim/.xvimrc
 
