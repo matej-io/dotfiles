@@ -1,0 +1,172 @@
+{
+	"title": "Vim motion selections",
+	"rules": [
+		{
+			"description": "Select prev, next word Ctrl-b Ctrl-w",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": [
+								"option",
+								"left_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"mandatory": [
+								"right_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": [
+								"option",
+								"right_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "w",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": [
+								"option",
+								"left_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "w",
+						"modifiers": {
+							"mandatory": [
+								"right_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": [
+								"option",
+								"right_shift"
+							]
+						}
+					],
+					"type": "basic"
+				}
+			]
+		},
+		{
+			"description": "Select prev next char Ctrl-h, Ctrl-l",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "h",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": [
+								"left_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "h",
+						"modifiers": {
+							"mandatory": [
+								"right_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": [
+								"right_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "l",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": [
+								"left_shift"
+							]
+						}
+					],
+					"type": "basic"
+				},
+				{
+					"from": {
+						"key_code": "l",
+						"modifiers": {
+							"mandatory": [
+								"right_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": [
+								"right_shift"
+							]
+						}
+					],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}
+
