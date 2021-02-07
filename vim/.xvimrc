@@ -11,14 +11,10 @@ inoremap <c-l> <esc>lli
 inoremap <c-h> <esc>i
 inoremap <c-w> <esc>lwi
 inoremap <c-b> <esc>bi
-inoremap <c-j> <esc>jli
-inoremap <c-k> <esc>kli
-nnoremap <c-l> li
-nnoremap <c-h> hi
-nnoremap <c-w> wi
-nnoremap <c-b> bi
-nnoremap <c-j> <esc>jli
-nnoremap <c-k> <esc>kli
+
+" Moving current line up or down
+inoremap <c-k> <esc>ddkPA
+inoremap <c-j> <esc>ddpA
 
 " Moving visual block up or down
 vnoremap <c-k> dkkp`[V`]
