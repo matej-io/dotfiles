@@ -11,6 +11,7 @@ call plug#end()
 
 set termguicolors
 set nocompatible
+set backspace=indent,eol,start
 set wildmenu
 
 set background=dark
