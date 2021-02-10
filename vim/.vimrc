@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'justinmk/vim-sneak'
 	Plug 'unblevable/quick-scope'
+	Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set termguicolors
@@ -14,8 +15,11 @@ set nocompatible
 set backspace=indent,eol,start
 set wildmenu
 
+let base16colorspace=256
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme base16-tomorrow-night
+" colorscheme base16-ocean
 
 set path+=**
 

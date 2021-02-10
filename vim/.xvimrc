@@ -34,6 +34,7 @@ nnoremap N Nzz
 inoremap <c-p> <esc>pa
 
 nnoremap zz zt<c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y>
+inoremap <c-z> <esc>zt<c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y><c-y>a
 
 " Quick undo from insert mode
 imap <c-u> <esc>ua
