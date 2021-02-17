@@ -197,7 +197,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('d', 'l', 'right_arrow', 'option'),
 					// up, down movements by 10 lines
 					...repeatModifierFN('d', 'i', 'up_arrow', [], 10),
-					...repeatModifierFN('s', 'k', 'down_arrow', [], 10),
+					...repeatModifierFN('d', 'k', 'down_arrow', [], 10),
 					// left, right movements by 3 words
 					...repeatModifierFN('s', 'j', 'left_arrow', 'option', 3),
 					...repeatModifierFN('s', 'l', 'right_arrow', 'option', 3),

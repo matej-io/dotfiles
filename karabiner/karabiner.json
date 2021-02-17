@@ -2654,9 +2654,43 @@
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -2680,9 +2714,43 @@
                 "to": [
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -2727,9 +2795,43 @@
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -2753,9 +2855,43 @@
                 "to": [
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -2994,63 +3130,83 @@
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -3074,63 +3230,83 @@
                 "to": [
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "up_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -3175,63 +3351,83 @@
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -3255,63 +3451,83 @@
                 "to": [
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
                   },
                   {
                     "key_code": "down_arrow",
-                    "modifiers": [
-                      "option"
-                    ]
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": []
                   }
                 ],
                 "type": "basic"
@@ -4063,6 +4279,115 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "f"
+                    },
+                    {
+                      "key_code": "y"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "f_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "f_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "f_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
               }
             ]
           },
@@ -4792,6 +5117,248 @@
                   {
                     "key_code": "down_arrow",
                     "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "d"
+                    },
+                    {
+                      "key_code": "y"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "d_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "d_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "d_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "f"
+                    },
+                    {
+                      "key_code": "u"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "f_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "f_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "f_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  },
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "right_command"
+                    ]
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  },
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "left_command"
+                    ]
                   }
                 ],
                 "type": "basic"
