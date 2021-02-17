@@ -8,12 +8,8 @@
 					"from": {
 						"key_code": "left_shift",
 						"modifiers": {
-							"mandatory": [
-								"right_shift"
-							],
-							"optional": [
-								"caps_lock"
-							]
+							"mandatory": ["right_shift"],
+							"optional": ["caps_lock"]
 						}
 					},
 					"to": [
@@ -32,12 +28,8 @@
 					"from": {
 						"key_code": "right_shift",
 						"modifiers": {
-							"mandatory": [
-								"left_shift"
-							],
-							"optional": [
-								"caps_lock"
-							]
+							"mandatory": ["left_shift"],
+							"optional": ["caps_lock"]
 						}
 					},
 					"to": [
@@ -52,7 +44,6 @@
 					],
 					"type": "basic"
 				}
-
 			]
 		}
 	]
