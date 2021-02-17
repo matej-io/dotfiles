@@ -187,20 +187,27 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Basic movememnt bindings',
 				manipulators: [
+					// movement by one line character
 					...modifierFN('f', 'j', 'left_arrow'),
 					...modifierFN('f', 'l', 'right_arrow'),
 					...modifierFN('f', 'i', 'up_arrow'),
 					...modifierFN('f', 'k', 'down_arrow'),
+					// left, right movements by word
 					...modifierFN('d', 'j', 'left_arrow', 'option'),
 					...modifierFN('d', 'l', 'right_arrow', 'option'),
-					...modifierFN('d', 'i', 'up_arrow', 'option'),
-					...modifierFN('d', 'k', 'down_arrow', 'option'),
+					// up, down movements by 10 lines
+					...repeatModifierFN('d', 'i', 'up_arrow', [], 10),
+					...repeatModifierFN('s', 'k', 'down_arrow', [], 10),
+					// left, right movements by 3 words
 					...repeatModifierFN('s', 'j', 'left_arrow', 'option', 3),
 					...repeatModifierFN('s', 'l', 'right_arrow', 'option', 3),
-					...repeatModifierFN('s', 'i', 'up_arrow', 'option', 10),
-					...repeatModifierFN('s', 'k', 'down_arrow', 'option', 10),
+					// up, down movements by 20 lines
+					...repeatModifierFN('s', 'i', 'up_arrow', [], 20),
+					...repeatModifierFN('s', 'k', 'down_arrow', [], 20),
+					// move to beginning, end of line
 					...modifierFN('a', 'j', 'left_arrow', 'left_command'),
 					...modifierFN('a', 'l', 'right_arrow', 'left_command'),
+					// move to start, end of document
 					...modifierFN('a', 'i', 'up_arrow', 'left_command'),
 					...modifierFN('a', 'k', 'down_arrow', 'left_command'),
 				],
@@ -208,10 +215,12 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'UI bindings',
 				manipulators: [
+					// move to left document tab
 					...modifierFN('t', 'j', 'open_bracket', [
 						'left_shift',
 						'left_command',
 					]),
+					// move to right document tab
 					...modifierFN('t', 'l', 'close_bracket', [
 						'left_shift',
 						'left_command',
@@ -221,37 +230,46 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Basic selection bindings',
 				manipulators: [
+					// select word left
 					...modifierFN('e', 'j', 'left_arrow', ['option', 'right_shift']),
+					// select word right
 					...modifierFN('e', 'l', 'right_arrow', [
 						'option',
 						'right_shift',
 					]),
+					// select line up
 					...modifierFN('e', 'i', 'up_arrow', ['right_shift']),
+					// select line down
 					...modifierFN('e', 'k', 'down_arrow', ['right_shift']),
-					// ...modifierFN('d', 'j', 'left_arrow', ['option', 'right_shift']),
-					// ...modifierFN('d', 'l', 'right_arrow', [
-					// 	'option',
-					// 	'right_shift',
-					// ]),
-					// ...modifierFN('e', 'i', 'up_arrow', ['option', 'right_shift']),
-					// ...modifierFN('e', 'k', 'down_arrow', ['option', 'right_shift']),
-					// ...modifierFN('w', 'j', 'left_arrow', [
-					// 	'left_command',
-					// 	'right_shift',
-					// ]),
-					// ...modifierFN('w', 'l', 'right_arrow', [
-					// 	'left_command',
-					// 	'right_shift',
-					// ]),
+					// select and copy current line
+					...genericModifierFN('f', 'y', [
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
+						},
+						{
+							key_code: 'c',
+							modifiers: ['right_command'],
+						},
+					]),
 				],
 			},
 			{
 				description: 'Basic deletion and line insetion bindings', // to do here
 				manipulators: [
+					// delete character backwards, forwards
 					...modifierFN('c', 'j', 'delete_or_backspace'),
 					...modifierFN('c', 'l', 'delete_or_backspace', ['fn']),
+					// insert empty line below
 					...genericModifierFN('v', 'k', [
-						// insert empty line below
 						{
 							key_code: 'right_arrow',
 							modifiers: ['left_command'],
@@ -261,8 +279,8 @@ const DEFAULT_PROFILE = {
 							modifiers: [],
 						},
 					]),
+					// insert empty line above
 					...genericModifierFN('v', 'i', [
-						// insert empty line above
 						{
 							key_code: 'up_arrow',
 							modifiers: [],
@@ -276,13 +294,12 @@ const DEFAULT_PROFILE = {
 							modifiers: [],
 						},
 					]),
-					// ...modifierFN('c', 'i', 'up_arrow'),
-					// ...modifierFN('c', 'k', 'down_arrow'),
+					// delete word left, right
 					...modifierFN('v', 'j', 'delete_or_backspace', ['option']),
 					...modifierFN('v', 'l', 'delete_or_backspace', ['option', 'fn']),
-					// ...modifierFN('e', 'i', 'up_arrow', ['option', 'right_shift']),
-					// ...modifierFN('e', 'k', 'down_arrow', ['option', 'right_shift']),
+					// delete to beginning of line
 					...modifierFN('x', 'j', 'delete_or_backspace', ['left_command']),
+					// delet to end of line
 					...genericModifierFN('x', 'l', [
 						{
 							key_code: 'right_arrow',
@@ -316,6 +333,53 @@ const DEFAULT_PROFILE = {
 							modifiers: [],
 						},
 					]),
+					// select and cut (to clipboard) current line
+					...genericModifierFN('d', 'y', [
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
+						},
+						{
+							key_code: 'x',
+							modifiers: ['right_command'],
+						},
+					]),
+					// duplicate current line
+					...genericModifierFN('f', 'u', [
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
+						},
+						{
+							key_code: 'c',
+							modifiers: ['right_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'v',
+							modifiers: ['left_command'],
+						},
+					]),
+					// delete till first capital letter
 					...genericModifierFN('g', 'l', [
 						{
 							shell_command:
