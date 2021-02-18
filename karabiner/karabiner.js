@@ -225,6 +225,19 @@ const DEFAULT_PROFILE = {
 						'left_shift',
 						'left_command',
 					]),
+					// cycle trough windows in the application
+					...modifierFN('t', 'i', 'grave_accent_and_tilde', [
+						'left_command',
+					]),
+					// cycle trough windows in the application
+					...modifierFN('t', 'k', 'grave_accent_and_tilde', [
+						'left_command',
+						'left_shift',
+					]),
+					// cycle trough applications forwards
+					...modifierFN('w', 'l', 'tab', ['left_command']),
+					// cycle trough applications backwards
+					...modifierFN('w', 'j', 'tab', ['left_command', 'left_shift']),
 				],
 			},
 			{
@@ -258,6 +271,44 @@ const DEFAULT_PROFILE = {
 						{
 							key_code: 'c',
 							modifiers: ['right_command'],
+						},
+					]),
+					// select line for downward selection movement
+					...genericModifierFN('r', 'k', [
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
+						},
+						{
+							key_code: 'c',
+							modifiers: ['right_command'],
+						},
+					]),
+					// select line for upward selection movement
+					...genericModifierFN('r', 'i', [
+						{
+							key_code: 'down_arrow',
+							modifiers: [],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'up_arrow',
+							modifiers: ['left_shift'],
 						},
 					]),
 				],
@@ -299,7 +350,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('v', 'l', 'delete_or_backspace', ['option', 'fn']),
 					// delete to beginning of line
 					...modifierFN('x', 'j', 'delete_or_backspace', ['left_command']),
-					// delet to end of line
+					// delete to end of line
 					...genericModifierFN('x', 'l', [
 						{
 							key_code: 'right_arrow',
