@@ -185,6 +185,17 @@ const DEFAULT_PROFILE = {
 				],
 			},
 			{
+				description: 'Sloveninan caron character bindings',
+				manipulators: [
+					...modifierFN('m', 's', 's', ['option']),
+					...modifierFN('m', 'z', 'z', ['option']),
+					...modifierFN('m', 'c', 'c', ['option']),
+					...modifierFN('comma', 's', 's', ['option', 'left_shift']),
+					...modifierFN('comma', 'z', 'z', ['option', 'left_shift']),
+					...modifierFN('comma', 'c', 'c', ['option', 'left_shift']),
+				],
+			},
+			{
 				description: 'Basic movememnt bindings',
 				manipulators: [
 					// movement by one line character
@@ -196,14 +207,14 @@ const DEFAULT_PROFILE = {
 					...modifierFN('d', 'j', 'left_arrow', 'option'),
 					...modifierFN('d', 'l', 'right_arrow', 'option'),
 					// up, down movements by 10 lines
-					...repeatModifierFN('d', 'i', 'up_arrow', [], 10),
-					...repeatModifierFN('d', 'k', 'down_arrow', [], 10),
+					...repeatModifierFN('d', 'i', 'up_arrow', [], 20),
+					...repeatModifierFN('d', 'k', 'down_arrow', [], 20),
 					// left, right movements by 3 words
 					...repeatModifierFN('s', 'j', 'left_arrow', 'option', 3),
 					...repeatModifierFN('s', 'l', 'right_arrow', 'option', 3),
-					// up, down movements by 20 lines
-					...repeatModifierFN('s', 'i', 'up_arrow', [], 20),
-					...repeatModifierFN('s', 'k', 'down_arrow', [], 20),
+					// page up, down movements
+					...repeatModifierFN('s', 'i', 'page_up', [], 20),
+					...repeatModifierFN('s', 'k', 'page_down', [], 20),
 					// move to beginning, end of line
 					...modifierFN('a', 'j', 'left_arrow', 'left_command'),
 					...modifierFN('a', 'l', 'right_arrow', 'left_command'),
@@ -216,21 +227,21 @@ const DEFAULT_PROFILE = {
 				description: 'UI bindings',
 				manipulators: [
 					// move to left document tab
-					...modifierFN('t', 'j', 'open_bracket', [
+					...modifierFN('g', 'j', 'open_bracket', [
 						'left_shift',
 						'left_command',
 					]),
 					// move to right document tab
-					...modifierFN('t', 'l', 'close_bracket', [
+					...modifierFN('g', 'l', 'close_bracket', [
 						'left_shift',
 						'left_command',
 					]),
 					// cycle trough windows in the application
-					...modifierFN('t', 'i', 'grave_accent_and_tilde', [
+					...modifierFN('w', 'i', 'grave_accent_and_tilde', [
 						'left_command',
 					]),
 					// cycle trough windows in the application
-					...modifierFN('t', 'k', 'grave_accent_and_tilde', [
+					...modifierFN('w', 'k', 'grave_accent_and_tilde', [
 						'left_command',
 						'left_shift',
 					]),
@@ -431,7 +442,7 @@ const DEFAULT_PROFILE = {
 						},
 					]),
 					// delete till first capital letter
-					...genericModifierFN('g', 'l', [
+					...genericModifierFN('b', 'l', [
 						{
 							shell_command:
 								'/Users/matej/Projects/tselect/bin/tselect deleteTillCapital',

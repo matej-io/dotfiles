@@ -14,4 +14,4 @@ abbr -a l ls -al
 abbr -a s git status
 abbr -a c git commit -m\"
 abbr -a d cd ~/.config/dotfiles
-
+abbr -a m micro
