@@ -177,6 +177,7 @@ const DEFAULT_PROFILE = {
 					...spaceFN('b', '4', 'left_shift'),
 					...spaceFN('comma', '3', 'left_shift'),
 					...spaceFN('period', '5', 'left_shift'),
+					...spaceFN('quote', 'grave_accent_and_tilde'),
 					...spaceFN(
 						'open_bracket',
 						'grave_accent_and_tilde',
@@ -261,6 +262,10 @@ const DEFAULT_PROFILE = {
 						'option',
 						'right_shift',
 					]),
+					// select character left
+					...modifierFN('r', 'j', 'left_arrow', ['right_shift']),
+					// select character right
+					...modifierFN('r', 'l', 'right_arrow', ['right_shift']),
 					// select line up
 					...modifierFN('e', 'i', 'up_arrow', ['right_shift']),
 					// select line down
@@ -372,7 +377,7 @@ const DEFAULT_PROFILE = {
 							modifiers: [],
 						},
 					]),
-					// delete line
+					// delete line and move down
 					...genericModifierFN('x', 'k', [
 						{
 							key_code: 'right_arrow',
@@ -392,6 +397,25 @@ const DEFAULT_PROFILE = {
 						},
 						{
 							key_code: 'down_arrow',
+							modifiers: [],
+						},
+					]),
+					// delete line and move up
+					...genericModifierFN('x', 'i', [
+						{
+							key_code: 'right_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'delete_or_backspace',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'delete_or_backspace',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'delete_or_backspace',
 							modifiers: [],
 						},
 					]),
