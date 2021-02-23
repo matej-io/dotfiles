@@ -43,7 +43,7 @@ function genericModifierFN(mod, from, to) {
 				},
 			},
 			parameters: {
-				'basic.simultaneous_threshold_milliseconds': 500 /* Default: 1000 */,
+				'basic.simultaneous_threshold_milliseconds': 3000 /* Default: 1000 */,
 			},
 			to: [
 				{
