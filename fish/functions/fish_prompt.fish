@@ -1,5 +1,5 @@
 function fish_prompt
-    echo -n (set_color brred)"$USER"(set_color white)' ❯ '(set_color yellow)(prompt_hostname)' '
+    echo -n (set_color blue)"$USER"(set_color white)'@'(set_color yellow)(prompt_hostname)' '
 
     echo -n (set_color blue)(prompt_pwd)
 
