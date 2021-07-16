@@ -8,7 +8,7 @@ set -g fish_user_paths "/Users/matej/Projects/Preview/depot_tools" $fish_user_pa
 set -x CARDANO_NODE_SOCKET_PATH /Users/matej/Library/Application Support/Daedalus Mainnet/cardano-node.socket
 
 abbr -a l ls -al
-abbr -a s git status
+abbr -a s sudo systemctl
 abbr -a d cd ~/.config/dotfiles
 abbr -a m micro
 abbr -a art cd /Users/matej/Library/Mobile\ Documents/com~apple~CloudDocs/Art

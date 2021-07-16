@@ -200,13 +200,13 @@ const DEFAULT_PROFILE = {
 				description: 'Basic movememnt bindings',
 				manipulators: [
 					// movement by one line character
-					...modifierFN('f', 'j', 'left_arrow'),
-					...modifierFN('f', 'l', 'right_arrow'),
+					...modifierFN('d', 'j', 'left_arrow'),
+					...modifierFN('d', 'l', 'right_arrow'),
 					...modifierFN('f', 'i', 'up_arrow'),
 					...modifierFN('f', 'k', 'down_arrow'),
 					// left, right movements by word
-					...modifierFN('d', 'j', 'left_arrow', 'option'),
-					...modifierFN('d', 'l', 'right_arrow', 'option'),
+					...modifierFN('f', 'j', 'left_arrow', 'option'),
+					...modifierFN('f', 'l', 'right_arrow', 'option'),
 					// up, down movements by 10 lines
 					...repeatModifierFN('d', 'i', 'up_arrow', [], 20),
 					...repeatModifierFN('d', 'k', 'down_arrow', [], 20),
@@ -303,10 +303,6 @@ const DEFAULT_PROFILE = {
 							key_code: 'down_arrow',
 							modifiers: ['left_shift'],
 						},
-						{
-							key_code: 'c',
-							modifiers: ['right_command'],
-						},
 					]),
 					// select line for upward selection movement
 					...genericModifierFN('r', 'i', [
@@ -380,42 +376,42 @@ const DEFAULT_PROFILE = {
 					// delete line and move down
 					...genericModifierFN('x', 'k', [
 						{
-							key_code: 'right_arrow',
+							key_code: 'left_arrow',
 							modifiers: ['left_command'],
 						},
 						{
-							key_code: 'delete_or_backspace',
+							key_code: 'left_arrow',
 							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'delete_or_backspace',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'delete_or_backspace',
-							modifiers: [],
 						},
 						{
 							key_code: 'down_arrow',
-							modifiers: [],
+							modifiers: ['left_shift'],
+						},
+						{
+							key_code: 'x',
+							modifiers: ['right_command'],
 						},
 					]),
 					// delete line and move up
 					...genericModifierFN('x', 'i', [
 						{
-							key_code: 'right_arrow',
+							key_code: 'left_arrow',
 							modifiers: ['left_command'],
 						},
 						{
-							key_code: 'delete_or_backspace',
+							key_code: 'left_arrow',
 							modifiers: ['left_command'],
 						},
 						{
-							key_code: 'delete_or_backspace',
-							modifiers: ['left_command'],
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
 						},
 						{
-							key_code: 'delete_or_backspace',
+							key_code: 'x',
+							modifiers: ['right_command'],
+						},
+						{
+							key_code: 'up_arrow',
 							modifiers: [],
 						},
 					]),
@@ -598,6 +594,193 @@ const DEFAULT_PROFILE = {
 							{
 								shell_command:
 									'/Users/matej/Projects/tselect/bin/tselect',
+							},
+						],
+						type: 'basic',
+					},
+				],
+			},
+			{
+				description: 'Xcode specific',
+				manipulators: [
+					{
+						from: {
+							key_code: 't',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 't',
+							},
+							{
+								key_code: 'r',
+							},
+							{
+								key_code: 'u',
+							},
+							{
+								key_code: 'e',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'f',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 'f',
+							},
+							{
+								key_code: 'a',
+							},
+							{
+								key_code: 'l',
+							},
+							{
+								key_code: 's',
+							},
+							{
+								key_code: 'e',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 's',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 's',
+							},
+							{
+								key_code: 'e',
+							},
+							{
+								key_code: 'l',
+							},
+							{
+								key_code: 'f',
+							},
+							{
+								key_code: 'period',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'l',
+							modifiers: {
+								mandatory: ['left_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 'l',
+							},
+							{
+								key_code: 'e',
+							},
+							{
+								key_code: 't',
+							},
+							{
+								key_code: 'spacebar',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'v',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 'v',
+							},
+							{
+								key_code: 'a',
+							},
+							{
+								key_code: 'r',
+							},
+							{
+								key_code: 'spacebar',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'c',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 'c',
+							},
+							{
+								key_code: 'o',
+							},
+							{
+								key_code: 'n',
+							},
+							{
+								key_code: 's',
+							},
+							{
+								key_code: 't',
+							},
+							{
+								key_code: 'spacebar',
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'w',
+							modifiers: {
+								mandatory: ['right_control'],
+							},
+						},
+						to: [
+							{
+								key_code: 's',
+							},
+							{
+								key_code: 'w',
+							},
+							{
+								key_code: 'i',
+							},
+							{
+								key_code: 't',
+							},
+							{
+								key_code: 'c',
+							},
+							{
+								key_code: 'h',
+							},
+							{
+								key_code: 'spacebar',
 							},
 						],
 						type: 'basic',
