@@ -205,11 +205,13 @@ const DEFAULT_PROFILE = {
 					...modifierFN('f', 'i', 'up_arrow'),
 					...modifierFN('f', 'k', 'down_arrow'),
 					// left, right movements by word
-					...modifierFN('f', 'j', 'left_arrow', 'option'),
-					...modifierFN('f', 'l', 'right_arrow', 'option'),
+					...modifierFN('g', 'j', 'left_arrow', 'option'),
+					...modifierFN('g', 'l', 'right_arrow', 'option'),
+					...modifierFN('f', 'j', 'left_arrow'),
+					...modifierFN('f', 'l', 'right_arrow'),
 					// up, down movements by 10 lines
-					...repeatModifierFN('d', 'i', 'up_arrow', [], 20),
-					...repeatModifierFN('d', 'k', 'down_arrow', [], 20),
+					...repeatModifierFN('d', 'i', 'up_arrow', [], 5),
+					...repeatModifierFN('d', 'k', 'down_arrow', [], 5),
 					// left, right movements by 3 words
 					...repeatModifierFN('s', 'j', 'left_arrow', 'option', 3),
 					...repeatModifierFN('s', 'l', 'right_arrow', 'option', 3),
