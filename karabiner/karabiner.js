@@ -360,7 +360,9 @@ const DEFAULT_PROFILE = {
 					]),
 					// delete word left, right
 					...modifierFN('v', 'j', 'delete_or_backspace', ['option']),
+					...modifierFN('b', 'j', 'delete_or_backspace', ['option']),
 					...modifierFN('v', 'l', 'delete_or_backspace', ['option', 'fn']),
+					...modifierFN('b', 'l', 'delete_or_backspace', ['option', 'fn']),
 					// delete to beginning of line
 					...modifierFN('x', 'j', 'delete_or_backspace', ['left_command']),
 					// delete to end of line
@@ -460,13 +462,6 @@ const DEFAULT_PROFILE = {
 						{
 							key_code: 'v',
 							modifiers: ['left_command'],
-						},
-					]),
-					// delete till first capital letter
-					...genericModifierFN('b', 'l', [
-						{
-							shell_command:
-								'/Users/matej/Projects/tselect/bin/tselect deleteTillCapital',
 						},
 					]),
 				],
