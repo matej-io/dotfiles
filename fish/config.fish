@@ -12,3 +12,4 @@ abbr -a s sudo systemctl
 abbr -a d cd ~/.config/dotfiles
 abbr -a m micro
 abbr -a art cd /Users/matej/Library/Mobile\ Documents/com~apple~CloudDocs/Art
+abbr -a g git push -u origin 
