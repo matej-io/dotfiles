@@ -229,12 +229,12 @@ const DEFAULT_PROFILE = {
 				description: 'UI bindings',
 				manipulators: [
 					// move to left document tab
-					...modifierFN('g', 'j', 'open_bracket', [
+					...modifierFN('t', 'j', 'open_bracket', [
 						'left_shift',
 						'left_command',
 					]),
 					// move to right document tab
-					...modifierFN('g', 'l', 'close_bracket', [
+					...modifierFN('t', 'l', 'close_bracket', [
 						'left_shift',
 						'left_command',
 					]),
