@@ -206,6 +206,8 @@ const DEFAULT_PROFILE = {
 					...modifierFN('f', 'k', 'down_arrow'),
 					...modifierFN('d', 'i', 'up_arrow'),
 					...modifierFN('d', 'k', 'down_arrow'),
+					...modifierFN('g', 'i', 'up_arrow'),
+					...modifierFN('g', 'k', 'down_arrow'),
 					// left, right movements by word
 					...modifierFN('g', 'j', 'left_arrow', 'option'),
 					...modifierFN('g', 'l', 'right_arrow', 'option'),

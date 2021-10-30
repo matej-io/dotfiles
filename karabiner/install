@@ -1,6 +1,5 @@
 #!/bin/sh
 
 rm ~/.config/karabiner/karabiner.json
-./karabiner.js > karabiner.json
+./karabiner.js >karabiner.json
 ln -s ~/.config/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-
