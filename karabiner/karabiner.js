@@ -188,12 +188,12 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Sloveninan caron character bindings',
 				manipulators: [
-					...modifierFN('m', 's', 's', ['option']),
-					...modifierFN('m', 'z', 'z', ['option']),
-					...modifierFN('m', 'c', 'c', ['option']),
-					...modifierFN('comma', 's', 's', ['option', 'left_shift']),
-					...modifierFN('comma', 'z', 'z', ['option', 'left_shift']),
-					...modifierFN('comma', 'c', 'c', ['option', 'left_shift']),
+					...modifierFN('n', 's', 's', ['option']),
+					...modifierFN('n', 'z', 'z', ['option']),
+					...modifierFN('n', 'c', 'c', ['option']),
+					...modifierFN('b', 's', 's', ['option', 'left_shift']),
+					...modifierFN('b', 'z', 'z', ['option', 'left_shift']),
+					...modifierFN('b', 'c', 'c', ['option', 'left_shift']),
 				],
 			},
 			{

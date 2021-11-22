@@ -2276,7 +2276,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "m"
+                      "key_code": "n"
                     },
                     {
                       "key_code": "s"
@@ -2288,7 +2288,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "m_mod",
+                          "name": "n_mod",
                           "value": 0
                         }
                       }
@@ -2301,7 +2301,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "m_mod",
+                      "name": "n_mod",
                       "value": 1
                     }
                   },
@@ -2317,7 +2317,7 @@
               {
                 "conditions": [
                   {
-                    "name": "m_mod",
+                    "name": "n_mod",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -2349,7 +2349,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "m"
+                      "key_code": "n"
                     },
                     {
                       "key_code": "z"
@@ -2361,7 +2361,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "m_mod",
+                          "name": "n_mod",
                           "value": 0
                         }
                       }
@@ -2374,7 +2374,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "m_mod",
+                      "name": "n_mod",
                       "value": 1
                     }
                   },
@@ -2390,7 +2390,7 @@
               {
                 "conditions": [
                   {
-                    "name": "m_mod",
+                    "name": "n_mod",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -2422,7 +2422,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "m"
+                      "key_code": "n"
                     },
                     {
                       "key_code": "c"
@@ -2434,7 +2434,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "m_mod",
+                          "name": "n_mod",
                           "value": 0
                         }
                       }
@@ -2447,7 +2447,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "m_mod",
+                      "name": "n_mod",
                       "value": 1
                     }
                   },
@@ -2463,7 +2463,7 @@
               {
                 "conditions": [
                   {
-                    "name": "m_mod",
+                    "name": "n_mod",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -2495,7 +2495,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "comma"
+                      "key_code": "b"
                     },
                     {
                       "key_code": "s"
@@ -2507,7 +2507,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "comma_mod",
+                          "name": "b_mod",
                           "value": 0
                         }
                       }
@@ -2520,7 +2520,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "comma_mod",
+                      "name": "b_mod",
                       "value": 1
                     }
                   },
@@ -2537,7 +2537,7 @@
               {
                 "conditions": [
                   {
-                    "name": "comma_mod",
+                    "name": "b_mod",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -2570,7 +2570,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "comma"
+                      "key_code": "b"
                     },
                     {
                       "key_code": "z"
@@ -2582,7 +2582,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "comma_mod",
+                          "name": "b_mod",
                           "value": 0
                         }
                       }
@@ -2595,7 +2595,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "comma_mod",
+                      "name": "b_mod",
                       "value": 1
                     }
                   },
@@ -2612,7 +2612,7 @@
               {
                 "conditions": [
                   {
-                    "name": "comma_mod",
+                    "name": "b_mod",
                     "type": "variable_if",
                     "value": 1
                   }
@@ -2645,7 +2645,7 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "comma"
+                      "key_code": "b"
                     },
                     {
                       "key_code": "c"
@@ -2657,7 +2657,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "comma_mod",
+                          "name": "b_mod",
                           "value": 0
                         }
                       }
@@ -2670,7 +2670,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "comma_mod",
+                      "name": "b_mod",
                       "value": 1
                     }
                   },
@@ -2687,7 +2687,7 @@
               {
                 "conditions": [
                   {
-                    "name": "comma_mod",
+                    "name": "b_mod",
                     "type": "variable_if",
                     "value": 1
                   }
