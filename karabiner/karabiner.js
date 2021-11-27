@@ -132,6 +132,16 @@ const DEFAULT_PROFILE = {
 				},
 			],
 		},
+		{
+			from: {
+				key_code: 'non_us_backslash',
+			},
+			to: [
+				{
+					key_code: 'grave_accent_and_tilde',
+				},
+			],
+		},
 	],
 	complex_modifications: {
 		parameters: {
@@ -188,12 +198,12 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Sloveninan caron character bindings',
 				manipulators: [
-					...modifierFN('n', 's', 's', ['option']),
-					...modifierFN('n', 'z', 'z', ['option']),
-					...modifierFN('n', 'c', 'c', ['option']),
-					...modifierFN('b', 's', 's', ['option', 'left_shift']),
-					...modifierFN('b', 'z', 'z', ['option', 'left_shift']),
-					...modifierFN('b', 'c', 'c', ['option', 'left_shift']),
+					...modifierFN('m', 's', 's', ['option']),
+					...modifierFN('m', 'z', 'z', ['option']),
+					...modifierFN('m', 'c', 'c', ['option']),
+					...modifierFN('n', 's', 's', ['option', 'left_shift']),
+					...modifierFN('n', 'z', 'z', ['option', 'left_shift']),
+					...modifierFN('n', 'c', 'c', ['option', 'left_shift']),
 				],
 			},
 			{
