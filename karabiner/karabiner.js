@@ -142,6 +142,16 @@ const DEFAULT_PROFILE = {
 				},
 			],
 		},
+		{
+			from: {
+				key_code: 'backslash',
+			},
+			to: [
+				{
+					key_code: 'return_or_enter',
+				},
+			],
+		},
 	],
 	complex_modifications: {
 		parameters: {
