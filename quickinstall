@@ -16,3 +16,5 @@ mv ~/.zshrc ~/.zshrc.bak
 cp ~/.config/dotfiles/zsh/.zshrc_home ~/.zshrc
 
 git config --global alias.co checkout
+
+./showhiddenfiles

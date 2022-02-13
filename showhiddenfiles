@@ -1,0 +1,4 @@
+#!/bin/sh
+
+defaults write -g AppleShowAllFiles -bool true
+killall Finder
