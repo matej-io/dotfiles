@@ -17,4 +17,7 @@ cp ~/.config/dotfiles/zsh/.zshrc_home ~/.zshrc
 
 git config --global alias.co checkout
 
-./showhiddenfiles
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	./showhiddenfiles
+	./karabiner/install
+fi
