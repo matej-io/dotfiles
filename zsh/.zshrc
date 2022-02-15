@@ -40,7 +40,6 @@ alias po="git push -u origin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
 export PATH="/Users/matej/Library/Python/2.7/bin:$PATH"
+export PATH="/Users/matej/scripts/bin:$PATH"
 
 fish
-
-
