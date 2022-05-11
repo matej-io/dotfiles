@@ -18,7 +18,7 @@ set wildmenu
 let base16colorspace=256
 set background=dark
 " colorscheme gruvbox
-colorscheme base16-tomorrow-night
+" colorscheme base16-tomorrow-night
 " colorscheme base16-ocean
 
 set path+=**
