@@ -251,15 +251,15 @@ const DEFAULT_PROFILE = {
 				description: 'UI bindings',
 				manipulators: [
 					// move to left document tab
-					...modifierFN('t', 'j', 'open_bracket', [
-						'left_shift',
-						'left_command',
-					]),
-					// move to right document tab
-					...modifierFN('t', 'l', 'close_bracket', [
-						'left_shift',
-						'left_command',
-					]),
+					// ...modifierFN('t', 'j', 'open_bracket', [
+					// 	'left_shift',
+					// 	'left_command',
+					// ]),
+					// // move to right document tab
+					// ...modifierFN('t', 'l', 'close_bracket', [
+					// 	'left_shift',
+					// 	'left_command',
+					// ]),
 					// cycle trough windows in the application
 					...modifierFN('w', 'i', 'grave_accent_and_tilde', [
 						'left_command',
@@ -286,9 +286,19 @@ const DEFAULT_PROFILE = {
 						'right_shift',
 					]),
 					// select character left
-					...modifierFN('r', 'j', 'left_arrow', ['right_shift']),
+					...modifierFN('t', 'j', 'left_arrow', ['right_shift']),
 					// select character right
-					...modifierFN('r', 'l', 'right_arrow', ['right_shift']),
+					...modifierFN('t', 'l', 'right_arrow', ['right_shift']),
+					// expand selection (vs code)
+					...modifierFN('r', 'l', 'right_arrow', [
+						'left_control',
+						'left_shift',
+					]),
+					// contract selection (vs code)
+					...modifierFN('r', 'j', 'left_arrow', [
+						'left_control',
+						'left_shift',
+					]),
 					// select line up
 					...modifierFN('e', 'i', 'up_arrow', ['right_shift']),
 					// select line down
