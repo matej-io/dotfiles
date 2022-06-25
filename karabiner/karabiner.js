@@ -245,6 +245,10 @@ const DEFAULT_PROFILE = {
 					// move to start, end of document
 					...modifierFN('a', 'i', 'up_arrow', 'left_command'),
 					...modifierFN('a', 'k', 'down_arrow', 'left_command'),
+					// vs code to next error
+					...modifierFN('t', 'k', 'f8'),
+					// vs code to previous error
+					...modifierFN('t', 'i', 'f8', ['right_shift']),
 				],
 			},
 			{
