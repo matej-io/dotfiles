@@ -1,0 +1,9 @@
+#!/bin/sh
+
+defaults write -g AppleShowAllFiles -bool true
+killall Finder
+
+defaults write com.apple.dock autohide-time-modifier -float 0.15
+killall Dock
+
+git config --global alias.co checkout
