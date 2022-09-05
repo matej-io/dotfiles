@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sed -i '1iexport PATH=~/.config/dotfiles/bin:"${PATH}"' ~/.bashrc
