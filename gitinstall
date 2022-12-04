@@ -1,0 +1,7 @@
+#!/bin/sh
+
+git config --global alias.co checkout
+git config --global user.email "matejukmar@gmail.com"
+git config --global user.name "Matej Ukmar"
+
+
