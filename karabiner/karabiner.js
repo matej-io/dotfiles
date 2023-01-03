@@ -277,6 +277,10 @@ const DEFAULT_PROFILE = {
 					...modifierFN('w', 'l', 'tab', ['left_command']),
 					// cycle trough applications backwards
 					...modifierFN('w', 'j', 'tab', ['left_command', 'left_shift']),
+					// open enpass
+					...modifierFN('j', 'f', 'l', ['left_alt', 'left_command']),
+					// copy enpass password
+					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
 				],
 			},
 			{
