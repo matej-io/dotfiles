@@ -15,7 +15,11 @@ ln -s ~/.config/dotfiles/fish/functions/fzf_key_bindings.fish ~/.config/fish/fun
 mv ~/.zshrc ~/.zshrc.bak
 cp ~/.config/dotfiles/zsh/.zshrc_home ~/.zshrc
 
+# GIT alias
 git config --global alias.co checkout
+
+# Scripts init
+./init_scripts
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	./macinstall
