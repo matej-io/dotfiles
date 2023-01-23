@@ -1,0 +1,5 @@
+#!/bin/sh
+
+url=${1#https://}
+curl "https://www.summarize.tech/$url" | yt-summary.js | say
+
