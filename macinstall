@@ -1,5 +1,25 @@
 #!/bin/sh
 
+# Fish install
+mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak
+cp ~/.config/dotfiles/fish/config_home.fish ~/.config/fish/config.fish
+
+mv ~/.config/fish/functions ~/.config/fish/functions_bak
+mkdir -pv ~/.config/fish/functions/
+ln -s ~/.config/dotfiles/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+ln -s ~/.config/dotfiles/fish/functions/fish_mode_prompt.fish ~/.config/fish/functions/fish_mode_prompt.fish
+ln -s ~/.config/dotfiles/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -s ~/.config/dotfiles/fish/functions/fzf_key_bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
+
+# ZSH install
+mv ~/.zshrc ~/.zshrc.bak
+cp ~/.config/dotfiles/zsh/.zshrc_home ~/.zshrc
+
+# GIT alias
+git config --global alias.co checkout
+
+./karabiner/install
+
 defaults write -g AppleShowAllFiles -bool true
 killall Finder
 

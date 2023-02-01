@@ -20,8 +20,5 @@ git config --global alias.co checkout
 
 # Scripts init
 ./init_scripts
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	./macinstall
-	./karabiner/install
-fi
+sed -i '1iexport PATH=~/.config/dotfiles/bin:"${PATH}"' ~/.bashrc
+sed -i '1iexport PATH=~/.config/dotfiles/scripts/bin:"${PATH}"' ~/.bashrc
