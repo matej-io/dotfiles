@@ -1,0 +1,14 @@
+#!/bin/bash
+
+file1=~/Library/Application\ Support/VSCodium/User/settings.json
+file2=~/.config/dotfiles/vscodium/settings.json
+
+if [[ ! -e "$file1" ]]; then
+	echo "backup_vscodium: $file1 does not exist"
+elif [[ ! -e "$file2" ]] || [[ $(stat -f "%m" "$file1") -gt $(stat -f "%m" "$file2") ]]; then
+  cp "$file1" "$file2"
+  (cd ~/.config/dotfiles/ && git add $file2 && git commit -m "Updated vscodium settings" && git push)
+  echo "backup_vscodium: $file1 into $file2"
+else
+	echo "backup_vscodium: skipped"
+fi
