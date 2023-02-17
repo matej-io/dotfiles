@@ -1,0 +1,19 @@
+{
+	"workbench.colorTheme": "Default Dark+",
+	"terminal.integrated.fontSize": 13,
+	"editor.accessibilitySupport": "off",
+	"editor.fontSize": 13,
+	"editor.formatOnSave": true,
+	"workbench.editorAssociations": {
+		"*.svg": "svgPreview.previewEditor"
+	},
+	"git.confirmSync": false,
+	"editor.tabSize": 3,
+	"editor.insertSpaces": false,
+	"editor.guides.indentation": false,
+	"prettier.tabWidth": 3,
+	"prettier.useTabs": true,
+	"editor.detectIndentation": false,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"prettier.singleQuote": true
+}
