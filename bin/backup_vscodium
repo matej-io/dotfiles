@@ -2,7 +2,7 @@
 
 file2=~/.config/dotfiles/vscodium/settings.json
 
-if ! git diff --quiet -- $file2; then
+if ! (cd ~/.config/dotfiles/ && git diff --quiet -- $file2); then
   (cd ~/.config/dotfiles/ && git add $file2 && git commit -m "Updated vscodium settings" && git push)
   echo "backup_vscodium: settings.json added"
 fi
