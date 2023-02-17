@@ -16,6 +16,4 @@
 	"editor.detectIndentation": false,
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"prettier.singleQuote": true
-
 }
-
