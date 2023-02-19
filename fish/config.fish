@@ -5,7 +5,11 @@ set -g fish_user_paths "$HOME/bin" $fish_user_paths
 set -g fish_user_paths "/Users/matej/Projects/Preview/depot_tools" $fish_user_paths
 
 abbr -a l ls -al
-abbr -a s sudo systemctl
+if [ (id -u) -eq 0 ]
+    abbr -a s systemctl
+else
+    abbr -a s sudo systemctl
+end
 abbr -a d cd ~/.config/dotfiles
 abbr -a m micro
 abbr -a art cd /Users/matej/Library/Mobile\ Documents/com~apple~CloudDocs/Art
