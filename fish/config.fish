@@ -5,7 +5,7 @@ set -g fish_user_paths "$HOME/bin" $fish_user_paths
 set -g fish_user_paths "/Users/matej/Projects/Preview/depot_tools" $fish_user_paths
 
 abbr -a l ls -al
-if [ (id -u) -eq 0 ]
+if test (whoami) = 'root'
     abbr -a s systemctl
 else
     abbr -a s sudo systemctl
