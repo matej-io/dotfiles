@@ -2,7 +2,7 @@
 
 # Fish install
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bak
-cp ~/.config/dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -s ~/.config/dotfiles/fish/config.fish ~/.config/fish/config.fish
 
 mv ~/.config/fish/functions ~/.config/fish/functions_bak
 mkdir -pv ~/.config/fish/functions/
