@@ -15,5 +15,7 @@
 	"prettier.useTabs": true,
 	"editor.detectIndentation": false,
 	"typescript.updateImportsOnFileMove.enabled": "always",
-	"prettier.singleQuote": true
+	"prettier.singleQuote": true,
+	"editor.wordWrap": "on",
+	"window.newWindowDimensions": "maximized"
 }
