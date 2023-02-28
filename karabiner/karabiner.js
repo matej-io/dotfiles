@@ -183,8 +183,8 @@ const DEFAULT_PROFILE = {
 					...spaceFN('x', 'close_bracket'),
 					...spaceFN('f', 'open_bracket', 'left_shift'),
 					...spaceFN('c', 'close_bracket', 'left_shift'),
-					...spaceFN('g', '9', 'left_shift'),
-					...spaceFN('v', '0', 'left_shift'),
+					...spaceFN('g', 'f12', 'fn'),
+					...spaceFN('v', 'hyphen', 'left_control'),
 					...spaceFN('h', 'equal_sign', 'left_shift'),
 					...spaceFN('n', 'hyphen'),
 					...spaceFN('j', 'equal_sign'),
@@ -277,6 +277,10 @@ const DEFAULT_PROFILE = {
 					...modifierFN('w', 'l', 'tab', ['left_command']),
 					// cycle trough applications backwards
 					...modifierFN('w', 'j', 'tab', ['left_command', 'left_shift']),
+					// open enpass
+					...modifierFN('j', 'f', 'l', ['left_alt', 'left_command']),
+					// copy enpass password
+					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
 				],
 			},
 			{

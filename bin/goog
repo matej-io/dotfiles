@@ -1,0 +1,8 @@
+#!/bin/sh
+
+params=$(printf "%s " "$@")
+
+s=$(node -e "console.log(encodeURIComponent('$params'))") 
+
+open /Applications/Safari.app https://google.com/search?q=$s
+

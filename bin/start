@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "sudo systemctl start $1"
-sudo systemctl start $1

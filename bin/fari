@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+case $1 in
+  https://*|http://*|"") url=$1;;
+  *) url="https://$1";;
+esac
+
+open /Applications/Safari.app $url
+

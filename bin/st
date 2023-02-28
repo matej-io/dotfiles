@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "sudo systemctl status $1"
-sudo systemctl status $1

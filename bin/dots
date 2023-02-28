@@ -1,0 +1,8 @@
+#!/bin/sh
+
+count=$((1 + $RANDOM % 10))
+echo $count
+for ((i = 0; i < $count; i++));
+do
+	printf .
+done

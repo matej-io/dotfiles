@@ -1,4 +1,0 @@
-#!/bin/sh
-
-echo "sudo systemctl restart $1"
-sudo systemctl restart $1

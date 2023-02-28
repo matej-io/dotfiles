@@ -1,0 +1,6 @@
+#!/bin/sh
+echo Enter your git user email:
+read email 
+git config --global alias.co checkout
+git config --global user.name "Matej Ukmar"
+git config --global user.email $email
