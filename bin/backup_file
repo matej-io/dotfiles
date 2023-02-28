@@ -1,0 +1,16 @@
+#!/bin/bash
+
+file1=$1
+file2=$2
+
+if [[ ! -e "$file1" ]]; then
+	echo "backup_file: $file1 does not exist"
+elif [[ ! -e "$file2" ]]; then
+  cp "$file1" "$file2"
+  echo "backup_file: new $file1 into $file2"
+elif [[ $(stat -f "%m" "$file1") -gt $(stat -f "%m" "$file2") ]]; then
+  cp "$file1" "$file2"
+  echo "backup_file: modified $file1 into $file2"
+else
+	echo "backup_file: skipped"
+fi

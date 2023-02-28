@@ -1157,9 +1157,9 @@
                     }
                   },
                   {
-                    "key_code": "9",
+                    "key_code": "f12",
                     "modifiers": [
-                      "left_shift"
+                      "fn"
                     ]
                   }
                 ],
@@ -1183,9 +1183,9 @@
                 },
                 "to": [
                   {
-                    "key_code": "9",
+                    "key_code": "f12",
                     "modifiers": [
-                      "left_shift"
+                      "fn"
                     ]
                   }
                 ],
@@ -1230,9 +1230,9 @@
                     }
                   },
                   {
-                    "key_code": "0",
+                    "key_code": "hyphen",
                     "modifiers": [
-                      "left_shift"
+                      "left_control"
                     ]
                   }
                 ],
@@ -1256,9 +1256,9 @@
                 },
                 "to": [
                   {
-                    "key_code": "0",
+                    "key_code": "hyphen",
                     "modifiers": [
-                      "left_shift"
+                      "left_control"
                     ]
                   }
                 ],
@@ -4896,6 +4896,156 @@
                     "modifiers": [
                       "left_command",
                       "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "j"
+                    },
+                    {
+                      "key_code": "f"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "j_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 3000
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "j_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "left_alt",
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "j_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "left_alt",
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "j"
+                    },
+                    {
+                      "key_code": "g"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "j_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 3000
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "j_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "p",
+                    "modifiers": [
+                      "left_shift",
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "j_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": [
+                      "left_shift",
+                      "left_command"
                     ]
                   }
                 ],

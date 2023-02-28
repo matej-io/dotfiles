@@ -1,0 +1,4 @@
+#!/bin/sh
+
+open /Applications/Safari.app https://www.youtube.com
+
