@@ -10,10 +10,7 @@ if test (whoami) = 'root'
 else
     abbr -a s sudo systemctl
 end
-abbr -a d cd ~/.config/dotfiles
-abbr -a m micro
-abbr -a art cd /Users/matej/Library/Mobile\ Documents/com~apple~CloudDocs/Art
+
 abbr -a g git push -u origin
-abbr -a p python3
 
 alias cpb="git branch --show-current | tr -d '\n' | pbcopy"
