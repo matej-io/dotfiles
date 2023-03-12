@@ -2,3 +2,5 @@
 
 mv ~/Library/Application\ Support/VSCodium/User/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json.bak
 ln -s ~/.config/dotfiles/vscodium/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
+mv ~/Library/Application\ Support/VSCodium/User/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json.bak
+ln -s ~/.config/dotfiles/vscodium/keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
