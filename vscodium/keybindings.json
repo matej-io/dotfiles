@@ -1,2 +1,17 @@
 // Place your key bindings in this file to override the defaults
-[{ "key": "cmd+k", "command": "workbench.action.terminal.clear", "when": "terminalFocus" }]
+[
+	{
+		"key": "cmd+k",
+		"command": "workbench.action.terminal.clear",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+z",
+		"command": "-workbench.action.terminal.sizeToContentWidth",
+		"when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported"
+	},
+	{
+		"key": "alt+z",
+		"command": "-editor.action.toggleWordWrap"
+	}
+]
