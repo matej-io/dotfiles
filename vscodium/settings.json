@@ -17,5 +17,6 @@
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"prettier.singleQuote": true,
 	"editor.wordWrap": "on",
-	"window.newWindowDimensions": "maximized"
+	"window.newWindowDimensions": "maximized",
+	"explorer.confirmDragAndDrop": false
 }

@@ -281,6 +281,8 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'f', 'l', ['left_alt', 'left_command']),
 					// copy enpass password
 					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
+					// copy enpass OTP
+					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
 				],
 			},
 			{

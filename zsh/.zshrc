@@ -101,3 +101,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 # HISTSIZE=10000
 # SAVEHIST=10000
 # HISTFILE=~/.cache/zsh/history
+
+fish
