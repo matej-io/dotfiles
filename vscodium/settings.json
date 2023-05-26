@@ -1,5 +1,4 @@
 {
-	"workbench.colorTheme": "Default Dark+",
 	"terminal.integrated.fontSize": 14,
 	"editor.accessibilitySupport": "off",
 	"editor.fontSize": 13,
@@ -18,5 +17,6 @@
 	"prettier.singleQuote": true,
 	"editor.wordWrap": "on",
 	"window.newWindowDimensions": "maximized",
-	"explorer.confirmDragAndDrop": false
+	"explorer.confirmDragAndDrop": false,
+	"workbench.colorTheme": "Default Dark+"
 }
