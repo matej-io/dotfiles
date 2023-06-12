@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+    number_of_uuids=1
+else
+    number_of_uuids=$1
+fi
+
+# Generate the UUIDs
+for ((i=0; i<number_of_uuids; i++))
+do
+    uuidgen | tr '[:upper:]' '[:lower:]' | sed 's/-//g'
+done
+
