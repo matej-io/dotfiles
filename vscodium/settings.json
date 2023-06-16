@@ -1,7 +1,7 @@
 {
 	"terminal.integrated.fontSize": 14,
 	"editor.accessibilitySupport": "off",
-	"editor.fontSize": 14,
+	"editor.fontSize": 13,
 	"editor.formatOnSave": true,
 	"workbench.editorAssociations": {
 		"*.svg": "svgPreview.previewEditor"
@@ -21,6 +21,6 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"explorer.confirmDragAndDrop": false,
-	"workbench.colorTheme": "Default Dark+",
-	"lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
+	"lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+	"workbench.colorTheme": "Default Dark+"
 }
