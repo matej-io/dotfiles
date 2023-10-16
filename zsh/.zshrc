@@ -3,6 +3,12 @@ export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export PATH="/Users/matej/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/scripts/bin:$PATH"
+# bun completions
+[ -s "/Users/matej/.bun/_bun" ] && source "/Users/matej/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 
 # Path to your oh-my-zsh installation.

@@ -18,5 +18,8 @@
 	"editor.wordWrap": "on",
 	"window.newWindowDimensions": "maximized",
 	"explorer.confirmDragAndDrop": false,
-	"workbench.colorTheme": "Default Dark+"
+	"workbench.colorTheme": "Default Dark+",
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
