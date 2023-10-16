@@ -17,9 +17,10 @@
 	"prettier.singleQuote": true,
 	"editor.wordWrap": "on",
 	"window.newWindowDimensions": "maximized",
-	"explorer.confirmDragAndDrop": false,
-	"workbench.colorTheme": "Default Dark+",
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"explorer.confirmDragAndDrop": false,
+	"lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+	"workbench.colorTheme": "Default Dark+"
 }
