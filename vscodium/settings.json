@@ -25,5 +25,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"workbench.colorTheme": "Default Dark+",
-	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace"
+	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontSize": 13,
+	"editor.wordWrapColumn": 120
 }
