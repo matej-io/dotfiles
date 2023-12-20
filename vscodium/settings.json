@@ -1,7 +1,7 @@
 {
 	"terminal.integrated.fontSize": 14,
 	"editor.accessibilitySupport": "off",
-	"editor.fontSize": 14,
+	"editor.fontSize": 13,
 	"editor.formatOnSave": true,
 	"workbench.editorAssociations": {
 		"*.svg": "svgPreview.previewEditor"
@@ -21,5 +21,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"explorer.confirmDragAndDrop": false,
-	"workbench.colorTheme": "Default Dark+"
+	"workbench.colorTheme": "Default Dark+",
+	"editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
