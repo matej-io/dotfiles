@@ -370,6 +370,19 @@ const DEFAULT_PROFILE = {
 				],
 			},
 			{
+				description: 'Window resizing via Tiles shortcuts',
+				manipulators: [
+					// select word left
+					...modifierFN('h', 'i', 'f', ['option', 'left_command']),
+					...modifierFN('h', 'k', 'c', ['option', 'left_command']),
+					...modifierFN('h', 'l', 'up_arrow', [
+						'left_control',
+						'left_command',
+					]),
+					...modifierFN('h', 'j', 'y', ['option', 'left_command']),
+				],
+			},
+			{
 				description: 'Basic deletion and line insetion bindings', // to do here
 				manipulators: [
 					// delete character backwards, forwards
