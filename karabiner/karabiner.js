@@ -283,6 +283,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
 					// copy enpass OTP
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
+					...modifierFN('v', 'h', 'f10', ['left_shift']),
 				],
 			},
 			{
