@@ -23,5 +23,6 @@
 	"explorer.confirmDragAndDrop": false,
 	"workbench.colorTheme": "Default Dark+",
 	"editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
-	"editor.defaultFormatter": "esbenp.prettier-vscode"
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
 }
