@@ -1,0 +1,33 @@
+#!/bin/sh
+
+declare -A myDictionary
+
+# Assign key-value pairs
+myDictionary["key1"]="value1"
+myDictionary["key2"]="value2"
+myDictionary["key3"]="value3"
+
+# Accessing values by keys
+echo "${myDictionary["key1"]}"   # Output: value1
+echo "${myDictionary["key2"]}"   # Output: value2
+
+# Loop through the associative array
+for key in "${!myDictionary[@]}"; do
+    value="${myDictionary[$key]}"
+    echo "Key: $key, Value: $value"
+done
+
+
+# destinations=("disk_matej" "disk_miranda" "disk_matej_old" "preview" "zenplus" "google_drive")
+
+# # Loop through the array
+# for destination in "${destinations[@]}"; do
+# 	pass=$(rand_pass)
+# 	echo "$destination=$pass"
+# done
+
+
+# echo "Encrypting $1"
+# pass=$(rand_pass)
+# echo "Pass: $pass"
+# openssl aes-256-cbc -a -in $1 -out test-out.txt -k $pass
