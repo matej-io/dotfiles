@@ -283,6 +283,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
 					// copy enpass OTP
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
+					...modifierFN('v', 'h', 'f10', ['left_shift']),
 				],
 			},
 			{
@@ -366,6 +367,19 @@ const DEFAULT_PROFILE = {
 							modifiers: ['left_shift'],
 						},
 					]),
+				],
+			},
+			{
+				description: 'Window resizing via Tiles shortcuts',
+				manipulators: [
+					// select word left
+					...modifierFN('h', 'i', 'f', ['option', 'left_command']),
+					...modifierFN('h', 'k', 'c', ['option', 'left_command']),
+					...modifierFN('h', 'l', 'up_arrow', [
+						'left_control',
+						'left_command',
+					]),
+					...modifierFN('h', 'j', 'y', ['option', 'left_command']),
 				],
 			},
 			{
