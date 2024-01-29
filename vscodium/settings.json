@@ -29,5 +29,6 @@
 	"editor.fontSize": 13,
 	"editor.wordWrapColumn": 120,
 	"editor.defaultFormatter": "vknabel.vscode-apple-swift-format",
-	"editor.inlayHints.enabled": "off"
+	"editor.inlayHints.enabled": "off",
+	"diffEditor.ignoreTrimWhitespace": false
 }
