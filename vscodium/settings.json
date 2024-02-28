@@ -30,5 +30,8 @@
 	"editor.wordWrapColumn": 120,
 	"editor.defaultFormatter": "vknabel.vscode-apple-swift-format",
 	"editor.inlayHints.enabled": "off",
-	"diffEditor.ignoreTrimWhitespace": false
+	"diffEditor.ignoreTrimWhitespace": false,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
