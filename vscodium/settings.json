@@ -33,5 +33,6 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"editor.inlineSuggest.showToolbar": "always"
 }
