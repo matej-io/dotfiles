@@ -28,11 +28,18 @@
 	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 13,
 	"editor.wordWrapColumn": 120,
-	"editor.defaultFormatter": "vknabel.vscode-apple-swift-format",
+	"[swift]": {
+		"editor.defaultFormatter": "vknabel.vscode-apple-swift-format"
+	},
 	"editor.inlayHints.enabled": "off",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"editor.inlineSuggest.showToolbar": "always"
+	"editor.inlineSuggest.showToolbar": "always",
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.autopep8",
+		"editor.tabSize": 4,
+		"editor.insertSpaces": true
+	}
 }
