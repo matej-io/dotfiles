@@ -41,5 +41,6 @@
 		"editor.defaultFormatter": "ms-python.autopep8",
 		"editor.tabSize": 4,
 		"editor.insertSpaces": true
-	}
+	},
+	"editor.unicodeHighlight.nonBasicASCII": false
 }
