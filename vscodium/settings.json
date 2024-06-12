@@ -42,5 +42,8 @@
 		"editor.tabSize": 4,
 		"editor.insertSpaces": true
 	},
-	"editor.unicodeHighlight.nonBasicASCII": false
+	"editor.unicodeHighlight.nonBasicASCII": false,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
