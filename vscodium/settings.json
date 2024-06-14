@@ -1,7 +1,6 @@
 {
 	"terminal.integrated.fontSize": 14,
 	"editor.accessibilitySupport": "off",
-	"editor.formatOnSave": true,
 	"workbench.editorAssociations": {
 		"*.svg": "svgPreview.previewEditor"
 	},
@@ -45,5 +44,7 @@
 	"editor.unicodeHighlight.nonBasicASCII": false,
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
