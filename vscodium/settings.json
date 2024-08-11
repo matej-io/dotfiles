@@ -1,5 +1,5 @@
 {
-	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.fontSize": 13,
 	"editor.accessibilitySupport": "off",
 	"editor.formatOnSave": true,
 	"workbench.editorAssociations": {
@@ -24,10 +24,18 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"workbench.colorTheme": "Default Dark+",
 	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
-	"editor.fontSize": 13,
+	"editor.fontSize": 12,
 	"editor.wordWrapColumn": 120,
 	"editor.defaultFormatter": "vknabel.vscode-apple-swift-format",
-	"editor.inlayHints.enabled": "off"
+	"editor.inlayHints.enabled": "off",
+	"chat.editor.fontSize": 12,
+	"debug.console.fontSize": 12,
+	"markdown.preview.fontSize": 12,
+	"window.zoomLevel": 0.4,
+	"lldb.launch.expressions": "native"
 }
