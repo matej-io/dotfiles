@@ -1,7 +1,6 @@
 {
 	"terminal.integrated.fontSize": 13,
 	"editor.accessibilitySupport": "off",
-	"editor.formatOnSave": true,
 	"workbench.editorAssociations": {
 		"*.svg": "svgPreview.previewEditor"
 	},
@@ -31,11 +30,26 @@
 	"editor.fontFamily": "'SF Mono', Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 12,
 	"editor.wordWrapColumn": 120,
-	"editor.defaultFormatter": "vknabel.vscode-apple-swift-format",
-	"editor.inlayHints.enabled": "off",
 	"chat.editor.fontSize": 12,
 	"debug.console.fontSize": 12,
 	"markdown.preview.fontSize": 12,
 	"window.zoomLevel": 0.4,
-	"lldb.launch.expressions": "native"
+	"lldb.launch.expressions": "native",
+	"[swift]": {
+		"editor.defaultFormatter": "vknabel.vscode-apple-swift-format"
+	},
+	"editor.inlayHints.enabled": "off",
+	"diffEditor.ignoreTrimWhitespace": false,
+	"editor.inlineSuggest.showToolbar": "always",
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.autopep8",
+		"editor.tabSize": 4,
+		"editor.insertSpaces": true
+	},
+	"editor.unicodeHighlight.nonBasicASCII": false,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
