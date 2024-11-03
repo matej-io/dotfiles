@@ -226,8 +226,6 @@ const DEFAULT_PROFILE = {
 					...modifierFN('f', 'k', 'down_arrow'),
 					...modifierFN('d', 'i', 'up_arrow'),
 					...modifierFN('d', 'k', 'down_arrow'),
-					...modifierFN('g', 'i', 'up_arrow'),
-					...modifierFN('g', 'k', 'down_arrow'),
 					// left, right movements by word
 					...modifierFN('g', 'j', 'left_arrow', 'option'),
 					...modifierFN('g', 'l', 'right_arrow', 'option'),
@@ -370,16 +368,10 @@ const DEFAULT_PROFILE = {
 				],
 			},
 			{
-				description: 'Window resizing via Tiles shortcuts',
+				description: 'Window resizing',
 				manipulators: [
-					// select word left
-					...modifierFN('h', 'i', 'f', ['option', 'left_command']),
-					...modifierFN('h', 'k', 'c', ['option', 'left_command']),
-					...modifierFN('h', 'l', 'up_arrow', [
-						'left_control',
-						'left_command',
-					]),
-					...modifierFN('h', 'j', 'y', ['option', 'left_command']),
+					...modifierFN('g', 'i', 'f', ['control', 'fn']),
+					...modifierFN('g', 'k', 'c', ['control', 'fn']),
 				],
 			},
 			{
