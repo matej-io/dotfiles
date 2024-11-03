@@ -12,5 +12,6 @@ else
 end
 
 abbr -a g git push -u origin
+abbr -a c clear
 
 alias cpb="git branch --show-current | tr -d '\n' | pbcopy"
