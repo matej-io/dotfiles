@@ -1,0 +1,22 @@
+[
+	{
+		"key": "shift+cmd+k",
+		"command": "cursorai.action.generateInTerminal",
+		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+	},
+	{
+		"key": "cmd+k",
+		"command": "-cursorai.action.generateInTerminal",
+		"when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+	},
+	{
+		"key": "cmd+k",
+		"command": "composer.startComposerPrompt",
+		"when": "composerIsEnabled && !terminalFocus"
+	},
+	{
+		"key": "cmd+k",
+		"command": "-composer.startComposerPrompt",
+		"when": "composerIsEnabled"
+	}
+]
