@@ -2,12 +2,14 @@
 
 shopt -s nocaseglob
 
-for file in *.wav; do
+ext=$1
+
+for file in *.$ext; do
   if [[ -e "$file" ]]; then
     echo "Processing $file with Whisper..."
     whisper "$file" --model base
   else
-    echo "No .wav files found in the current directory."
+    echo "No .$ext files found in the current directory."
     exit 1
   fi
 done
