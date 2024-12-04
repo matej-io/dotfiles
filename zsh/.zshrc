@@ -3,6 +3,7 @@ export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 export PATH="/Users/matej/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/scripts/bin:$PATH"
+if [ -f '/Users/matej/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matej/lib/google-cloud-sdk/path.zsh.inc'; fi
 # bun completions
 [ -s "/Users/matej/.bun/_bun" ] && source "/Users/matej/.bun/_bun"
 
