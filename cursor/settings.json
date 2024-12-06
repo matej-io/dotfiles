@@ -1,0 +1,98 @@
+{
+	"editor.tabSize": 3,
+	"editor.insertSpaces": false,
+	"prettier.tabWidth": 3,
+	"prettier.useTabs": true,
+	"editor.detectIndentation": false,
+	"explorer.confirmDragAndDrop": false,
+	"editor.fontSize": 12.5,
+	"terminal.integrated.fontSize": 14,
+	"window.newWindowDimensions": "maximized",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"prettier.singleQuote": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.trimTrailingWhitespace": true,
+	"apple-swift-format.enable": true,
+	"[swift]": {
+		"editor.defaultFormatter": "vknabel.vscode-apple-swift-format"
+	},
+	"editor.wordWrap": "on",
+	"security.workspace.trust.untrustedFiles": "open",
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[proto3]": {
+		"editor.defaultFormatter": "zxh404.vscode-proto3"
+	},
+	"git.confirmSync": false,
+	"editor.accessibilitySupport": "off",
+	"git.autofetch": true,
+	"editor.formatOnSave": true,
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[properties]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"window.commandCenter": true,
+	"workbench.colorTheme": "Default Dark+",
+	"editor.semanticTokenColorCustomizations": {
+		"enabled": true,
+		"rules": {
+			"method": "#CCCC00",
+			"function": "#CCCC00",
+			"function.declaration": "#FFFF00",
+			"string": "#FFFFFF",
+			"property": "#D8D8D8",
+			"parameter": "#D8D8D8",
+			"interface": "#CCCC00",
+			"interface.declaration": "#FFFF00",
+			"class": "#CCCC00",
+			"class.declaration": "#FFFF00"
+		}
+	},
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "string",
+				"settings": {
+					"foreground": "#778899"
+				}
+			},
+			{
+				"scope": "comment",
+				"settings": {
+					"foreground": "#AAAAAA"
+				}
+			},
+			{
+				"scope": "support.function",
+				"settings": {
+					"foreground": "#a3a300"
+				}
+			},
+			{
+				"scope": "entity.name.function",
+				"settings": {
+					"foreground": "#FFFF00"
+				}
+			},
+			{
+				"scope": "entity.name.type",
+				"settings": {
+					"foreground": "#FFFF00"
+				}
+			}
+		]
+	},
+	"lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+	"lldb.launch.expressions": "native",
+	"lldb.suppressUpdateNotifications": true
+}
