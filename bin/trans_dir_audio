@@ -1,0 +1,32 @@
+#!/bin/bash
+
+shopt -s nocaseglob
+
+ext=$1
+
+for file in *.$ext; do
+  if [[ -e "$file" ]]; then
+    echo "Processing $file with Whisper..."
+    whisper "$file" --model base
+  else
+    echo "No .$ext files found in the current directory."
+    exit 1
+  fi
+done
+
+combined_file="combined_transcript.txt"
+echo "Combining all .txt files into $combined_file..."
+
+# Clear the contents of the combined file if it already exists
+> "$combined_file"
+
+for txt_file in *.txt; do
+  if [[ "$txt_file" != "$combined_file" ]]; then
+    echo "Adding $txt_file to $combined_file..."
+    # Append the contents of each .txt file to the combined file
+    cat "$txt_file" >> "$combined_file"
+    echo -e "\n\n" >> "$combined_file"  # Add a newline for separation
+  fi
+done
+
+echo "All .txt files have been combined into $combined_file."
