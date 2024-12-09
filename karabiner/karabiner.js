@@ -228,7 +228,9 @@ const DEFAULT_PROFILE = {
 					...modifierFN('d', 'k', 'down_arrow'),
 					// left, right movements by word
 					...modifierFN('g', 'j', 'left_arrow', 'option'),
+					...modifierFN('f', 'h', 'left_arrow', 'option'),
 					...modifierFN('g', 'l', 'right_arrow', 'option'),
+					...modifierFN('f', 'semicolon', 'right_arrow', 'option'),
 					...modifierFN('f', 'j', 'left_arrow'),
 					...modifierFN('f', 'l', 'right_arrow'),
 					// left, right movements by 3 words
@@ -282,6 +284,8 @@ const DEFAULT_PROFILE = {
 					// copy enpass OTP
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
 					...modifierFN('v', 'h', 'f10', ['left_shift']),
+					// move to next error in vscode/cursor
+					...modifierFN('f', 'm', 'f8', ['fn']),
 				],
 			},
 			{
@@ -603,41 +607,6 @@ const DEFAULT_PROFILE = {
 						to_if_alone: [
 							{
 								key_code: 'return_or_enter',
-							},
-						],
-						type: 'basic',
-					},
-				],
-			},
-			{
-				description: 'Testing',
-				manipulators: [
-					{
-						from: {
-							key_code: 'g',
-							modifiers: {
-								mandatory: ['left_control'],
-							},
-						},
-						to: [
-							{
-								shell_command:
-									'/Users/matej/Projects/tselect/bin/tselect',
-							},
-						],
-						type: 'basic',
-					},
-					{
-						from: {
-							key_code: 'g',
-							modifiers: {
-								mandatory: ['right_control'],
-							},
-						},
-						to: [
-							{
-								shell_command:
-									'/Users/matej/Projects/tselect/bin/tselect',
 							},
 						],
 						type: 'basic',
