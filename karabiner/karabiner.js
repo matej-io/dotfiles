@@ -282,6 +282,8 @@ const DEFAULT_PROFILE = {
 					// copy enpass OTP
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
 					...modifierFN('v', 'h', 'f10', ['left_shift']),
+					// open raycast
+					...modifierFN('d', 'f', 'spacebar', ['left_option']),
 				],
 			},
 			{
