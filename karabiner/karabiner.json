@@ -5220,10 +5220,10 @@
                   },
                   "simultaneous": [
                     {
-                      "key_code": "d"
+                      "key_code": "f"
                     },
                     {
-                      "key_code": "f"
+                      "key_code": "spacebar"
                     }
                   ],
                   "simultaneous_options": {
@@ -5232,7 +5232,7 @@
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "d_mod",
+                          "name": "f_mod",
                           "value": 0
                         }
                       }
@@ -5245,7 +5245,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "d_mod",
+                      "name": "f_mod",
                       "value": 1
                     }
                   },
@@ -5261,13 +5261,13 @@
               {
                 "conditions": [
                   {
-                    "name": "d_mod",
+                    "name": "f_mod",
                     "type": "variable_if",
                     "value": 1
                   }
                 ],
                 "from": {
-                  "key_code": "f",
+                  "key_code": "spacebar",
                   "modifiers": {
                     "optional": [
                       "any"
