@@ -285,7 +285,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
 					...modifierFN('v', 'h', 'f10', ['left_shift']),
 					// open raycast
-					...modifierFN('d', 'f', 'spacebar', ['left_option']),
+					...modifierFN('f', 'spacebar', 'spacebar', ['left_option']),
 					// move to next error in vscode/cursor
 					...modifierFN('f', 'm', 'f8', ['fn']),
 				],
