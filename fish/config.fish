@@ -13,6 +13,7 @@ end
 
 abbr -a g git push -u origin
 abbr -a c clear
+abbr -a n npm
 
 alias cpb="git branch --show-current | tr -d '\n' | pbcopy"
 
