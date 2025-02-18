@@ -26,4 +26,7 @@ killall Finder
 defaults write com.apple.dock autohide-time-modifier -float 0.15
 killall Dock
 
+# Disable caps lock delay (needed for karabiner)
+hidutil property --set '{"CapsLockDelayOverride":0}'
+
 git config --global alias.co checkout
