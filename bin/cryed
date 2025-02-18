@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Get the file to edit
+file="$1"
+
+# Check if an argument was provided
+if [[ -z "$file" ]]; then
+    echo "Usage: secure_edit <encrypted-file>"
+    exit 1
+fi
+
+# Use system's default editor (fallback to nano if undefined)
+editor="${EDITOR:-nano}"
+
+# Prompt user for password once
+echo -n "Enter encryption password: "
+read -s password
+
+# Create a temporary decrypted file
+decrypted=$(mktemp)
+
+# If the encrypted file exists, decrypt it; otherwise, prepare an empty temp file
+if [[ -f "$file" ]]; then
+    echo "$password" | openssl aes-256-cbc -pbkdf2 -d -salt -a -in "$file" -out "$decrypted" -pass stdin || { echo "Decryption failed."; rm -f "$decrypted"; exit 1; }
+else
+    touch "$decrypted"
+fi
+
+# Open the file in the default editor
+"$editor" "$decrypted"
+
+# Check if file was saved (non-empty temp file)
+if [[ -s "$decrypted" ]]; then
+    echo "$password" | openssl aes-256-cbc -pbkdf2 -salt -a -in "$decrypted" -out "$file" -pass stdin
+    echo "File encrypted successfully."
+else
+    echo "File was empty. No changes saved."
+fi
+
+unset password
+rm "$decrypted"
