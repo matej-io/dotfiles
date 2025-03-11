@@ -1,5 +1,5 @@
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 export PATH="/Users/matej/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/bin:$PATH"
 export PATH="/Users/matej/.config/dotfiles/scripts/bin:$PATH"
@@ -18,8 +18,8 @@ export NVM_DIR="$HOME/.nvm"
 # pnpm
 export PNPM_HOME="/Users/matej/Library/pnpm"
 case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
