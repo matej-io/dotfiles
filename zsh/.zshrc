@@ -116,4 +116,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 # SAVEHIST=10000
 # HISTFILE=~/.cache/zsh/history
 
+source /Users/matej/.config/dotfiles/zsh/secrets.sh
+
 fish
