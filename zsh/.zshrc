@@ -23,6 +23,4 @@ alias l='ls -al'
 alias g="git push -u origin"
 alias s="systemctl "
 
-source /Users/matej/.config/dotfiles/zsh/secrets.sh
-
 fish
