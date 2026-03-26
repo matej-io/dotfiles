@@ -32,7 +32,19 @@ export EDITOR=nano
 
 alias l='ls -al'
 alias g="git push -u origin"
-alias s="systemctl "
+if [[ $EUID -eq 0 ]]; then
+  alias s="systemctl "
+else
+  alias s="sudo systemctl "
+fi
+
+# Expand aliases immediately when pressing Space.
+expand-alias-on-space() {
+  zle _expand_alias
+  zle self-insert
+}
+zle -N expand-alias-on-space
+bindkey ' ' expand-alias-on-space
 
 # ---- history ----
 HISTSIZE=50000
