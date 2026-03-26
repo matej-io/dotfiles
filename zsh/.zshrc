@@ -5,7 +5,14 @@ export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PNPM_HOME="$HOME/Library/pnpm"
+if [ -z "$PNPM_HOME" ]; then
+  case "$OSTYPE" in
+    darwin*) PNPM_HOME="$HOME/Library/pnpm" ;;
+    linux*) PNPM_HOME="$HOME/.local/share/pnpm" ;;
+    *) PNPM_HOME="$HOME/.local/share/pnpm" ;;
+  esac
+fi
+export PNPM_HOME
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -28,8 +35,6 @@ export EDITOR=nano
 alias l='ls -al'
 alias g="git push -u origin"
 alias s="systemctl "
-
-# fish
 
 # ---- history ----
 HISTSIZE=50000
