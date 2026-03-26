@@ -79,8 +79,15 @@ bindkey '^[[B' down-line-or-beginning-search
 
 # ---- prompt ----
 autoload -Uz colors && colors
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Configure git branch display
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
+
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%n@%m%f %F{yellow}%1~%f %# '
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%1~%f%F{green}${vcs_info_msg_0_}%f %# '
 
 # ---- autosuggestions ----
 if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
