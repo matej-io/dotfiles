@@ -1,10 +1,16 @@
-export PATH="/opt/homebrew/bin:$PATH"
+# common paths
 export PATH="$HOME/.config/dotfiles/bin:$PATH"
 export PATH="$HOME/.config/dotfiles/scripts/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
-export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# homebrew/macos paths
+if [[ "$OSTYPE" == darwin* ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
+  export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+fi
+
+# pnpm path
 if [ -z "$PNPM_HOME" ]; then
   case "$OSTYPE" in
     darwin*) PNPM_HOME="$HOME/Library/pnpm" ;;
@@ -18,17 +24,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-if [ -f '/Users/matej/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matej/lib/google-cloud-sdk/path.zsh.inc'; fi
-# bun completions
-[ -s "/Users/matej/.bun/_bun" ] && source "/Users/matej/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 export EDITOR=nano
 
