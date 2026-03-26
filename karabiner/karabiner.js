@@ -376,8 +376,8 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Window resizing',
 				manipulators: [
-					...modifierFN('g', 'i', 'f', ['control', 'fn']),
-					...modifierFN('g', 'k', 'c', ['control', 'fn']),
+					...modifierFN('g', 'i', 'g', ['control', 'command']),
+					...modifierFN('g', 'k', 'm', ['control', 'command']),
 				],
 			},
 			{
