@@ -41,7 +41,9 @@ setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
 
 # ---- completion ----
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
+zmodload zsh/complist
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list \
@@ -56,26 +58,10 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*:approximate:*' max-errors 2 numeric
 
-# Use arrow keys in completion menu
-zmodload zsh/complist
-bindkey '^[[A' up-line-or-history
-bindkey '^[[B' down-line-or-history
-bindkey '^I' complete-word
+# Tab completion
+bindkey '^I' expand-or-complete
+# bindkey '^I' menu-complete
 
-# ---- keybindings ----
-bindkey -e
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^[f' forward-word
-bindkey '^[b' backward-word
-
-# Search history with up/down based on current command prefix
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
 
 # ---- prompt ----
 autoload -Uz colors && colors
