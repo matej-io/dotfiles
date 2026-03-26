@@ -5,6 +5,11 @@ export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 if [ -f '/Users/matej/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matej/lib/google-cloud-sdk/path.zsh.inc'; fi
 # bun completions
