@@ -142,16 +142,16 @@ const DEFAULT_PROFILE = {
 				},
 			],
 		},
-		{
-			from: {
-				key_code: 'backslash',
-			},
-			to: [
-				{
-					key_code: 'return_or_enter',
-				},
-			],
-		},
+		// {
+		// 	from: {
+		// 		key_code: 'backslash',
+		// 	},
+		// 	to: [
+		// 		{
+		// 			key_code: 'return_or_enter',
+		// 		},
+		// 	],
+		// },
 	],
 	complex_modifications: {
 		parameters: {
@@ -587,31 +587,6 @@ const DEFAULT_PROFILE = {
 								key_code: 'escape',
 							},
 						],
-					},
-				],
-			},
-			{
-				description:
-					'Change return to control if pressed with other keys, to return if pressed alone',
-				manipulators: [
-					{
-						from: {
-							key_code: 'return_or_enter',
-							modifiers: {
-								optional: ['any'],
-							},
-						},
-						to: [
-							{
-								key_code: 'right_control',
-							},
-						],
-						to_if_alone: [
-							{
-								key_code: 'return_or_enter',
-							},
-						],
-						type: 'basic',
 					},
 				],
 			},
