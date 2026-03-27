@@ -1,3 +1,2 @@
 .DS_Store
-
-zsh/secrets.sh
+node_modules
