@@ -35,8 +35,10 @@ alias l='ls -al'
 alias g="git push -u origin"
 if [[ $EUID -eq 0 ]]; then
   alias s="systemctl "
+  alias j="journalctl -u"
 else
   alias s="sudo systemctl "
+  alias j="sudo journalctl -u"
 fi
 
 # Expand aliases immediately when pressing Space.
