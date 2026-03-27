@@ -1,4 +1,4 @@
 #!/bin/sh
 
-open /Applications/Safari.app https://chat.openai.com
+open /Applications/Safari.app https://chatgpt.com
 

@@ -6309,10 +6309,10 @@
                     }
                   },
                   {
-                    "key_code": "f",
+                    "key_code": "g",
                     "modifiers": [
                       "control",
-                      "fn"
+                      "command"
                     ]
                   }
                 ],
@@ -6336,10 +6336,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "f",
+                    "key_code": "g",
                     "modifiers": [
                       "control",
-                      "fn"
+                      "command"
                     ]
                   }
                 ],
@@ -6384,10 +6384,10 @@
                     }
                   },
                   {
-                    "key_code": "c",
+                    "key_code": "m",
                     "modifiers": [
                       "control",
-                      "fn"
+                      "command"
                     ]
                   }
                 ],
@@ -6411,10 +6411,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "c",
+                    "key_code": "m",
                     "modifiers": [
                       "control",
-                      "fn"
+                      "command"
                     ]
                   }
                 ],

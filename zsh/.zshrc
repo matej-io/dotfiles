@@ -75,7 +75,7 @@ zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*:approximate:*' max-errors 2 numeric
 
 # Tab completion
-bindkey '^I' expand-or-complete
+bindkey '^I' menu-complete
 # bindkey '^I' menu-complete
 
 
