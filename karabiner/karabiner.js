@@ -201,7 +201,7 @@ const DEFAULT_PROFILE = {
 					...spaceFN(
 						'open_bracket',
 						'grave_accent_and_tilde',
-						'left_shift'
+						'left_shift',
 					),
 				],
 			},
@@ -794,6 +794,6 @@ process.stdout.write(
 			profiles: [DEFAULT_PROFILE, VANILLA_PROFILE],
 		},
 		null,
-		2
-	) + '\n'
+		2,
+	) + '\n',
 );
