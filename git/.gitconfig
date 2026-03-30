@@ -1,0 +1,4 @@
+[alias]
+	co = checkout
+	l = "!git for-each-ref --sort=-committerdate refs/remotes/ \
+      --format='%(refname:short)' | grep -v 'HEAD' | head -n 10"
