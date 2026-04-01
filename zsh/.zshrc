@@ -84,7 +84,13 @@ bindkey '^I' menu-complete
 # ---- prompt ----
 autoload -Uz colors && colors
 autoload -Uz vcs_info
-precmd() { vcs_info }
+precmd() {
+  local last_status=$?
+  vcs_info
+  if (( last_status != 0 )); then
+    print -P "%F{red}%B>>> command failed (exit $last_status) <<<%b%f"
+  fi
+}
 
 # Configure git branch display
 zstyle ':vcs_info:git:*' formats ' (%b)'
