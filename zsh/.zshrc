@@ -88,7 +88,7 @@ precmd() {
   local last_status=$?
   vcs_info
   if (( last_status != 0 )); then
-    print -P "%F{red}%B>>> failed [$last_status]%b%f"
+    print -P "%F{red}%B* failed%b%f"
   fi
 }
 
