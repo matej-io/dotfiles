@@ -524,44 +524,25 @@ const DEFAULT_PROFILE = {
 				description: 'Toggle CAPS_LOCK with LEFT_SHIFT + RIGHT_SHIFT',
 				manipulators: [
 					{
+						type: 'basic',
 						from: {
-							key_code: 'left_shift',
+							simultaneous: [
+								{ key_code: 'left_shift' },
+								{ key_code: 'right_shift' },
+							],
 							modifiers: {
-								mandatory: ['right_shift'],
-								optional: ['caps_lock'],
+								optional: ['any'],
+							},
+							simultaneous_options: {
+								key_down_order: 'insensitive',
+								key_up_order: 'insensitive',
+								detect_key_down_uninterruptedly: true,
 							},
 						},
-						to: [
-							{
-								key_code: 'caps_lock',
-							},
-						],
-						to_if_alone: [
-							{
-								key_code: 'left_shift',
-							},
-						],
-						type: 'basic',
-					},
-					{
-						from: {
-							key_code: 'right_shift',
-							modifiers: {
-								mandatory: ['left_shift'],
-								optional: ['caps_lock'],
-							},
+						to: [{ key_code: 'caps_lock' }],
+						parameters: {
+							'basic.simultaneous_threshold_milliseconds': 250,
 						},
-						to: [
-							{
-								key_code: 'caps_lock',
-							},
-						],
-						to_if_alone: [
-							{
-								key_code: 'right_shift',
-							},
-						],
-						type: 'basic',
 					},
 				],
 			},
