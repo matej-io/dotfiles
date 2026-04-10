@@ -195,6 +195,8 @@ const DEFAULT_PROFILE = {
 					// movement by one line character
 					...modifierFN('d', 'j', 'left_arrow'),
 					...modifierFN('d', 'l', 'right_arrow'),
+					...modifierFN('f', 'j', 'left_arrow'),
+					...modifierFN('f', 'l', 'right_arrow'),
 					...modifierFN('f', 'i', 'up_arrow'),
 					...modifierFN('f', 'k', 'down_arrow'),
 					...modifierFN('d', 'i', 'up_arrow'),
@@ -276,6 +278,40 @@ const DEFAULT_PROFILE = {
 						{
 							key_code: 'c',
 							modifiers: ['right_command'],
+						},
+					]),
+					// select line for downward selection movement
+					...genericModifierFN('r', 'k', [
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'down_arrow',
+							modifiers: ['left_shift'],
+						},
+					]),
+					// select line for upward selection movement
+					...genericModifierFN('r', 'i', [
+						{
+							key_code: 'down_arrow',
+							modifiers: [],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'left_arrow',
+							modifiers: ['left_command'],
+						},
+						{
+							key_code: 'up_arrow',
+							modifiers: ['left_shift'],
 						},
 					]),
 				],
