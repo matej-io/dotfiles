@@ -58,6 +58,13 @@ setopt SHARE_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
 
+# Use prefix history search with arrow keys:
+# typing "git" + Up/Down cycles through history entries starting with "git".
+bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
+bindkey "${terminfo[kcud1]}" history-beginning-search-forward
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
 # ---- completion ----
 autoload -Uz compinit
 compinit
