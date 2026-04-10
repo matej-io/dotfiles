@@ -1,18 +1,5 @@
 #!/usr/bin/env node
 
-function fromTo(from, to) {
-	return [
-		{
-			from: {
-				key_code: from,
-			},
-			to: {
-				key_code: to,
-			},
-		},
-	];
-}
-
 function genericModifierFN(mod, from, to) {
 	const modVar = `${mod}_mod`;
 	return [
@@ -98,10 +85,6 @@ function spaceFN(from, to, toMods) {
 	return modifierFN('spacebar', from, to, toMods);
 }
 
-function swap(a, b) {
-	return [...fromTo(a, b), ...fromTo(b, a)];
-}
-
 const PARAMETER_DEFAULTS = {
 	'basic.simultaneous_threshold_milliseconds': 50,
 	'basic.to_delayed_action_delay_milliseconds': 500,
@@ -142,16 +125,6 @@ const DEFAULT_PROFILE = {
 				},
 			],
 		},
-		// {
-		// 	from: {
-		// 		key_code: 'backslash',
-		// 	},
-		// 	to: [
-		// 		{
-		// 			key_code: 'return_or_enter',
-		// 		},
-		// 	],
-		// },
 	],
 	complex_modifications: {
 		parameters: {
@@ -183,22 +156,22 @@ const DEFAULT_PROFILE = {
 					...spaceFN('x', 'close_bracket'),
 					...spaceFN('f', 'open_bracket', 'left_shift'),
 					...spaceFN('c', 'close_bracket', 'left_shift'),
-					...spaceFN('g', 'f12', 'fn'),
-					...spaceFN('v', 'hyphen', 'left_control'),
-					...spaceFN('h', 'equal_sign', 'left_shift'),
-					...spaceFN('n', 'hyphen'),
-					...spaceFN('j', 'equal_sign'),
-					...spaceFN('k', '8', 'left_shift'),
-					...spaceFN('l', '7', 'left_shift'),
-					...spaceFN('semicolon', 'backslash', 'left_shift'),
-					...spaceFN('m', 'hyphen', 'left_shift'),
-					...spaceFN('slash', 'backslash'),
-					...spaceFN('z', '6', 'left_shift'),
-					...spaceFN('b', '4', 'left_shift'),
-					...spaceFN('comma', '3', 'left_shift'),
-					...spaceFN('period', '5', 'left_shift'),
-					...spaceFN('quote', 'grave_accent_and_tilde'),
-					...spaceFN(
+					...spaceFN('g', 'f12', 'fn'), // not needed
+					...spaceFN('v', 'hyphen', 'left_control'), // not needed
+					...spaceFN('h', 'equal_sign', 'left_shift'), // +
+					...spaceFN('n', 'hyphen'), // -
+					...spaceFN('j', 'equal_sign'), // = 
+					...spaceFN('k', '8', 'left_shift'), // *
+					...spaceFN('l', '7', 'left_shift'), // &
+					...spaceFN('semicolon', 'backslash', 'left_shift'), // |
+					...spaceFN('m', 'hyphen', 'left_shift'), // _
+					...spaceFN('slash', 'backslash'), // \
+					...spaceFN('z', '6', 'left_shift'), // ^
+					...spaceFN('b', '4', 'left_shift'), // $
+					...spaceFN('comma', '3', 'left_shift'), //%
+					...spaceFN('period', '5', 'left_shift'), // #
+					...spaceFN('quote', 'grave_accent_and_tilde'), // `
+					...spaceFN( // ~
 						'open_bracket',
 						'grave_accent_and_tilde',
 						'left_shift',
@@ -208,12 +181,12 @@ const DEFAULT_PROFILE = {
 			{
 				description: 'Sloveninan caron character bindings',
 				manipulators: [
-					...modifierFN('m', 's', 's', ['option']),
-					...modifierFN('m', 'z', 'z', ['option']),
-					...modifierFN('m', 'c', 'c', ['option']),
-					...modifierFN('n', 's', 's', ['option', 'left_shift']),
-					...modifierFN('n', 'z', 'z', ['option', 'left_shift']),
-					...modifierFN('n', 'c', 'c', ['option', 'left_shift']),
+					...modifierFN('m', 's', 's', ['option']), // š
+					...modifierFN('m', 'z', 'z', ['option']), // ž
+					...modifierFN('m', 'c', 'c', ['option']), // č
+					...modifierFN('n', 's', 's', ['option', 'left_shift']), // Š
+					...modifierFN('n', 'z', 'z', ['option', 'left_shift']), // Ž
+					...modifierFN('n', 'c', 'c', ['option', 'left_shift']), // Č
 				],
 			},
 			{
@@ -226,44 +199,17 @@ const DEFAULT_PROFILE = {
 					...modifierFN('f', 'k', 'down_arrow'),
 					...modifierFN('d', 'i', 'up_arrow'),
 					...modifierFN('d', 'k', 'down_arrow'),
-					// left, right movements by word
-					...modifierFN('g', 'j', 'left_arrow', 'option'),
-					...modifierFN('f', 'h', 'left_arrow', 'option'),
-					...modifierFN('g', 'l', 'right_arrow', 'option'),
-					...modifierFN('f', 'semicolon', 'right_arrow', 'option'),
-					...modifierFN('f', 'j', 'left_arrow'),
-					...modifierFN('f', 'l', 'right_arrow'),
-					// left, right movements by 3 words
-					...repeatModifierFN('s', 'j', 'left_arrow', 'option', 3),
-					...repeatModifierFN('s', 'l', 'right_arrow', 'option', 3),
-					// page up, down movements
-					...repeatModifierFN('s', 'i', 'page_up', [], 20),
-					...repeatModifierFN('s', 'k', 'page_down', [], 20),
 					// move to beginning, end of line
 					...modifierFN('a', 'j', 'left_arrow', 'left_command'),
 					...modifierFN('a', 'l', 'right_arrow', 'left_command'),
 					// move to start, end of document
 					...modifierFN('a', 'i', 'up_arrow', 'left_command'),
 					...modifierFN('a', 'k', 'down_arrow', 'left_command'),
-					// vs code to next error
-					...modifierFN('t', 'k', 'f8'),
-					// vs code to previous error
-					...modifierFN('t', 'i', 'f8', ['right_shift']),
 				],
 			},
 			{
 				description: 'UI bindings',
 				manipulators: [
-					// move to left document tab
-					// ...modifierFN('t', 'j', 'open_bracket', [
-					// 	'left_shift',
-					// 	'left_command',
-					// ]),
-					// // move to right document tab
-					// ...modifierFN('t', 'l', 'close_bracket', [
-					// 	'left_shift',
-					// 	'left_command',
-					// ]),
 					// cycle trough windows in the application
 					...modifierFN('w', 'i', 'grave_accent_and_tilde', [
 						'left_command',
@@ -283,11 +229,6 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
 					// copy enpass OTP
 					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
-					...modifierFN('v', 'h', 'f10', ['left_shift']),
-					// open raycast
-					...modifierFN('f', 'spacebar', 'spacebar', ['left_option']),
-					// move to next error in vscode/cursor
-					...modifierFN('f', 'm', 'f8', ['fn']),
 				],
 			},
 			{
@@ -335,40 +276,6 @@ const DEFAULT_PROFILE = {
 						{
 							key_code: 'c',
 							modifiers: ['right_command'],
-						},
-					]),
-					// select line for downward selection movement
-					...genericModifierFN('r', 'k', [
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'down_arrow',
-							modifiers: ['left_shift'],
-						},
-					]),
-					// select line for upward selection movement
-					...genericModifierFN('r', 'i', [
-						{
-							key_code: 'down_arrow',
-							modifiers: [],
-						},
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'up_arrow',
-							modifiers: ['left_shift'],
 						},
 					]),
 				],
@@ -472,25 +379,6 @@ const DEFAULT_PROFILE = {
 							modifiers: [],
 						},
 					]),
-					// select and cut (to clipboard) current line
-					...genericModifierFN('d', 'y', [
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'left_arrow',
-							modifiers: ['left_command'],
-						},
-						{
-							key_code: 'down_arrow',
-							modifiers: ['left_shift'],
-						},
-						{
-							key_code: 'x',
-							modifiers: ['right_command'],
-						},
-					]),
 					// duplicate current line
 					...genericModifierFN('f', 'u', [
 						{
@@ -578,7 +466,7 @@ const DEFAULT_PROFILE = {
 						from: {
 							key_code: 't',
 							modifiers: {
-								mandatory: ['right_control'],
+								mandatory: ['left_control'],
 							},
 						},
 						to: [
@@ -601,7 +489,7 @@ const DEFAULT_PROFILE = {
 						from: {
 							key_code: 'f',
 							modifiers: {
-								mandatory: ['right_control'],
+								mandatory: ['left_control'],
 							},
 						},
 						to: [
@@ -627,7 +515,7 @@ const DEFAULT_PROFILE = {
 						from: {
 							key_code: 's',
 							modifiers: {
-								mandatory: ['right_control'],
+								mandatory: ['left_control'],
 							},
 						},
 						to: [
@@ -676,7 +564,7 @@ const DEFAULT_PROFILE = {
 						from: {
 							key_code: 'v',
 							modifiers: {
-								mandatory: ['right_control'],
+								mandatory: ['left_control'],
 							},
 						},
 						to: [
@@ -699,7 +587,7 @@ const DEFAULT_PROFILE = {
 						from: {
 							key_code: 'c',
 							modifiers: {
-								mandatory: ['right_control'],
+								mandatory: ['left_control'],
 							},
 						},
 						to: [
@@ -717,38 +605,6 @@ const DEFAULT_PROFILE = {
 							},
 							{
 								key_code: 't',
-							},
-							{
-								key_code: 'spacebar',
-							},
-						],
-						type: 'basic',
-					},
-					{
-						from: {
-							key_code: 'w',
-							modifiers: {
-								mandatory: ['right_control'],
-							},
-						},
-						to: [
-							{
-								key_code: 's',
-							},
-							{
-								key_code: 'w',
-							},
-							{
-								key_code: 'i',
-							},
-							{
-								key_code: 't',
-							},
-							{
-								key_code: 'c',
-							},
-							{
-								key_code: 'h',
 							},
 							{
 								key_code: 'spacebar',
