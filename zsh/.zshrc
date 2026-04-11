@@ -2,7 +2,6 @@
 export PATH="$HOME/.config/dotfiles/bin:$PATH"
 export PATH="$HOME/.config/dotfiles/scripts/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.config/dotfiles/bin:$PATH"
 
 # homebrew/macos paths
 if [[ "$OSTYPE" == darwin* ]]; then
