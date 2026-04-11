@@ -84,7 +84,6 @@ zstyle ':completion:*:approximate:*' max-errors 2 numeric
 
 # Tab completion
 bindkey '^I' menu-complete
-# bindkey '^I' menu-complete
 
 
 # ---- prompt ----
