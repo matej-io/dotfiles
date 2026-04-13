@@ -619,35 +619,6 @@ const DEFAULT_PROFILE = {
 						],
 						type: 'basic',
 					},
-					{
-						from: {
-							key_code: 'c',
-							modifiers: {
-								mandatory: ['left_control'],
-							},
-						},
-						to: [
-							{
-								key_code: 'c',
-							},
-							{
-								key_code: 'o',
-							},
-							{
-								key_code: 'n',
-							},
-							{
-								key_code: 's',
-							},
-							{
-								key_code: 't',
-							},
-							{
-								key_code: 'spacebar',
-							},
-						],
-						type: 'basic',
-					},
 				],
 			},
 		],
