@@ -179,6 +179,41 @@ const DEFAULT_PROFILE = {
 				],
 			},
 			{
+				description: 'Swap semicolon and colon',
+				manipulators: [
+					{
+						from: {
+							key_code: 'semicolon',
+							modifiers: {
+								optional: ['caps_lock'],
+							},
+						},
+						to: [
+							{
+								key_code: 'semicolon',
+								modifiers: ['left_shift'],
+							},
+						],
+						type: 'basic',
+					},
+					{
+						from: {
+							key_code: 'semicolon',
+							modifiers: {
+								mandatory: ['shift'],
+								optional: ['caps_lock'],
+							},
+						},
+						to: [
+							{
+								key_code: 'semicolon',
+							},
+						],
+						type: 'basic',
+					},
+				],
+			},
+			{
 				description: 'Sloveninan caron character bindings',
 				manipulators: [
 					...modifierFN('m', 's', 's', ['option']), // š
