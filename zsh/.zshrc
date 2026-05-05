@@ -89,17 +89,22 @@ bindkey '^I' menu-complete
 # ---- prompt ----
 autoload -Uz colors && colors
 autoload -Uz vcs_info
+
+# lighter vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:git:*' check-for-changes false
+zstyle ':vcs_info:git:*' get-revision false
+zstyle ':vcs_info:git:*' stagedstr ''
+zstyle ':vcs_info:git:*' unstagedstr ''
+
 precmd() {
   local last_status=$?
   vcs_info
   if (( last_status != 0 )); then
-    print -P "%F{red}%B* failed%b%f"
+    print -P "%F{red}%B* $last_status%b%f"
   fi
 }
-
-# Configure git branch display
-zstyle ':vcs_info:git:*' formats ' (%b)'
-zstyle ':vcs_info:*' enable git
 
 setopt PROMPT_SUBST
 PROMPT='%F{cyan}%n@%m%f %F{yellow}%1~%f%F{green}${vcs_info_msg_0_}%f %# '
