@@ -10,20 +10,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
 fi
 
-# pnpm path
-if [ -z "$PNPM_HOME" ]; then
-  case "$OSTYPE" in
-    darwin*) PNPM_HOME="$HOME/Library/pnpm" ;;
-    linux*) PNPM_HOME="$HOME/.local/share/pnpm" ;;
-    *) PNPM_HOME="$HOME/.local/share/pnpm" ;;
-  esac
-fi
-export PNPM_HOME
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
