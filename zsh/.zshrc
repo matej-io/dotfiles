@@ -8,6 +8,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
   export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+  alias u="multipass start ubuntu-min; multipass shell ubuntu-min"
 fi
 
 # bun
