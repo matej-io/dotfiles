@@ -225,12 +225,12 @@ const DEFAULT_PROFILE = {
 					...modifierFN('w', 'l', 'tab', ['left_command']),
 					// cycle trough applications backwards
 					...modifierFN('w', 'j', 'tab', ['left_command', 'left_shift']),
-					// open enpass
-					...modifierFN('j', 'f', 'l', ['left_alt', 'left_command']),
+					// open 1password
+					...modifierFN('j', 'f', 'spacebar', ['left_shift', 'left_command']),
 					// copy enpass password
-					...modifierFN('j', 'g', 'p', ['left_shift', 'left_command']),
+					...modifierFN('j', 'g', 'c', ['left_shift', 'left_command']),
 					// copy enpass OTP
-					...modifierFN('j', 'h', 't', ['left_shift', 'left_command']),
+					...modifierFN('j', 'h', 'c', ['option', 'left_command']),
 				],
 			},
 			{
