@@ -156,7 +156,7 @@ const DEFAULT_PROFILE = {
 					...spaceFN('x', 'close_bracket'),
 					...spaceFN('f', 'open_bracket', 'left_shift'),
 					...spaceFN('c', 'close_bracket', 'left_shift'),
-					...spaceFN('g', 'f12', 'fn'), // not needed
+					...spaceFN('g', 'f8', 'fn'), // next issue in vscode
 					...spaceFN('v', 'hyphen', 'left_control'), // not needed
 					...spaceFN('h', 'equal_sign', 'left_shift'), // +
 					...spaceFN('n', 'hyphen'), // -

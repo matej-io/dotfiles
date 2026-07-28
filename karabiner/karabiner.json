@@ -1157,7 +1157,7 @@
                     }
                   },
                   {
-                    "key_code": "f12",
+                    "key_code": "f8",
                     "modifiers": [
                       "fn"
                     ]
@@ -1183,7 +1183,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "f12",
+                    "key_code": "f8",
                     "modifiers": [
                       "fn"
                     ]
