@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+    cat <<'EOF'
+Usage: remove-worktrees [--dry-run] [--yes] [repository]
+
+Remove every linked worktree from a Git repository while keeping its primary
+working tree. Dirty and locked linked worktrees are removed as well.
+
+Options:
+  -n, --dry-run  Show what would be removed without changing anything
+  -y, --yes      Do not ask for confirmation
+  -h, --help     Show this help
+EOF
+}
+
+dry_run=false
+assume_yes=false
+repository=.
+repository_set=false
+
+while (($#)); do
+    case $1 in
+        -n|--dry-run)
+            dry_run=true
+            ;;
+        -y|--yes)
+            assume_yes=true
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        --)
+            shift
+            if (($# > 1)); then
+                usage >&2
+                exit 2
+            fi
+            repository=${1:-.}
+            break
+            ;;
+        -*)
+            printf 'Unknown option: %s\n' "$1" >&2
+            usage >&2
+            exit 2
+            ;;
+        *)
+            if [[ $repository_set == true ]]; then
+                printf 'Only one repository may be specified.\n' >&2
+                usage >&2
+                exit 2
+            fi
+            repository=$1
+            repository_set=true
+            ;;
+    esac
+    shift
+done
+
+if ! git -C "$repository" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    printf 'Not inside a Git working tree: %s\n' "$repository" >&2
+    exit 1
+fi
+
+worktrees=()
+while IFS= read -r -d '' field; do
+    if [[ $field == 'worktree '* ]]; then
+        worktrees+=("${field#worktree }")
+    fi
+done < <(git -C "$repository" worktree list --porcelain -z)
+
+if ((${#worktrees[@]} == 0)); then
+    printf 'Could not find the primary worktree.\n' >&2
+    exit 1
+fi
+
+primary=${worktrees[0]}
+linked=("${worktrees[@]:1}")
+
+if ((${#linked[@]} == 0)); then
+    printf 'No linked worktrees to remove. Primary worktree: %s\n' "$primary"
+    exit 0
+fi
+
+printf 'Primary worktree (kept): %s\n' "$primary"
+printf 'Linked worktrees to remove:\n'
+printf '  %s\n' "${linked[@]}"
+
+if [[ $dry_run == true ]]; then
+    exit 0
+fi
+
+if [[ $assume_yes == false ]]; then
+    if [[ ! -t 0 ]]; then
+        printf 'Refusing to remove worktrees without confirmation; use --yes.\n' >&2
+        exit 1
+    fi
+
+    read -r -p 'Remove these worktrees, including uncommitted files? [y/N] ' reply
+    [[ $reply == [yY] || $reply == [yY][eE][sS] ]] || exit 0
+fi
+
+# Run from the primary tree so this also works when invoked from a linked tree.
+cd "$primary"
+for worktree in "${linked[@]}"; do
+    printf 'Removing %s\n' "$worktree"
+    git worktree remove --force --force "$worktree"
+done
+
+git worktree prune
+printf 'Removed %d linked worktree(s).\n' "${#linked[@]}"
