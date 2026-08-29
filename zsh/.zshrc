@@ -80,7 +80,7 @@ autoload -Uz vcs_info
 
 # lighter vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:git:*' formats ' ( %b)'
 zstyle ':vcs_info:git:*' check-for-changes false
 zstyle ':vcs_info:git:*' get-revision false
 zstyle ':vcs_info:git:*' stagedstr ''
