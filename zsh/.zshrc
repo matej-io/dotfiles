@@ -80,7 +80,7 @@ autoload -Uz vcs_info
 
 # lighter vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats ' ( %b)'
+zstyle ':vcs_info:git:*' formats '  %b'
 zstyle ':vcs_info:git:*' check-for-changes false
 zstyle ':vcs_info:git:*' get-revision false
 zstyle ':vcs_info:git:*' stagedstr ''
@@ -95,7 +95,7 @@ precmd() {
 }
 
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%n@%m%f %F{yellow}%1~%f%F{green}${vcs_info_msg_0_}%f %# '
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%1~%f%F{white}${vcs_info_msg_0_}%f → '
 
 # ---- autosuggestions ----
 if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
