@@ -71,9 +71,10 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
 
-# Keep Finder, Safari, and Surfshark on their designated workspaces, including
-# windows opened after startup.
+# Keep designated apps on their workspaces, including windows opened after
+# startup. AppCleaner stays floating on workspace 3.
 on-window-detected = [
+    { if = 'test %{app-bundle-id} = net.freemacsoft.AppCleaner', run = ['layout floating', 'move-node-to-workspace 3'] },
     { if = 'test %{app-bundle-id} = com.apple.finder', run = 'move-node-to-workspace 3' },
     { if = 'test %{app-bundle-id} = com.apple.Safari || test %{app-bundle-id} = app.zen-browser.zen', run = 'move-node-to-workspace 2' },
     { if = 'true', run = 'move-node-to-workspace 1' },
