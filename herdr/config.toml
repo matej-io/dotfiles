@@ -1,0 +1,6 @@
+onboarding = false
+[[keys.command]]
+  key = "ctrl+l" 
+  type = "shell" 
+  command = "~/.config/herdr/clear-pane.sh"
+  description = "clear focused Herdr pane"
