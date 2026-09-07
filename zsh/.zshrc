@@ -15,11 +15,13 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 export EDITOR=nano
 
 alias l='ls -al'
 alias g="git push -u origin"
+
 if [[ $EUID -eq 0 ]]; then
   alias s="systemctl "
   alias j="journalctl -u"
@@ -117,6 +119,12 @@ elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-hello() {
-  echo "hello"
-}
+# bun completions
+# [ -s "/Users/matej/.bun/_bun" ] && source "/Users/matej/.bun/_bun"
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<
+
