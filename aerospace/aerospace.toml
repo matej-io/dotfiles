@@ -80,7 +80,7 @@ on-window-detected = [
     { if = 'true', run = 'move-node-to-workspace 1' },
 ]
 
-focus-follows-mouse.enabled = true
+focus-follows-mouse.enabled = false
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping

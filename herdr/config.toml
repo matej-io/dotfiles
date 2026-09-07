@@ -1,4 +1,8 @@
 onboarding = false
+[keys]
+switch_workspace = "cmd+1..9"
+switch_tab = "alt+1..9"
+
 [[keys.command]]
   key = "ctrl+l" 
   type = "shell" 
