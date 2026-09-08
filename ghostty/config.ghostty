@@ -12,6 +12,8 @@ keybind = chain=text:\x0c
 
 
 # Forward workspace/tab shortcuts to Herdr using CSI-u key sequences.
+keybind = cmd+t=csi:116;9u
+keybind = cmd+w=csi:119;9u
 keybind = cmd+1=csi:49;9u
 keybind = cmd+digit_1=csi:49;9u
 keybind = alt+1=csi:49;3u

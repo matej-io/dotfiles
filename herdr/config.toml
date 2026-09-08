@@ -2,9 +2,14 @@ onboarding = false
 [keys]
 switch_workspace = "cmd+1..9"
 switch_tab = "alt+1..9"
+new_tab = "cmd+t"
+close_tab = "cmd+w"
 
 [[keys.command]]
   key = "ctrl+l" 
   type = "shell" 
   command = "~/.config/herdr/clear-pane.sh"
   description = "clear focused Herdr pane"
+
+[ui]
+prompt_new_tab_name = false
