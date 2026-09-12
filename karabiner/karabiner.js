@@ -239,6 +239,8 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'z', 'z', ['option', 'control', 'left_command']), // zen browser
 					...modifierFN('j', 'i', 'i', ['option', 'control', 'left_command']), // ghostty
 					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // affinity
+					...modifierFN('j', 'm', 'm', ['option', 'control', 'left_command']), // mail
+					...modifierFN('j', 'r', 'f', ['option', 'control', 'left_command']), // finder
 			],
 			},
 			{
