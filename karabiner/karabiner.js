@@ -238,6 +238,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 't', 't', ['option', 'control', 'left_command']), // t3 code
 					...modifierFN('j', 'z', 'z', ['option', 'control', 'left_command']), // zen browser
 					...modifierFN('j', 'i', 'i', ['option', 'control', 'left_command']), // ghostty
+					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // affinity
 			],
 			},
 			{
