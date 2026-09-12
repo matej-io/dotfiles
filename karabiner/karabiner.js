@@ -231,17 +231,14 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'g', 'c', ['left_shift', 'left_command']),
 					// copy enpass OTP
 					...modifierFN('j', 'h', 'c', ['option', 'left_command']),
-					// workspace switch manipulators
-					...modifierFN('j', 'q', '1', ['option']),
-					...modifierFN('j', 'w', '2', ['option']),
-					...modifierFN('j', 'e', '3', ['option']),
-					...modifierFN('j', 'r', '4', ['option']),
-					// workspace move to manipulators
-					...modifierFN('j', 'q', '1', ['option', 'right_shift']),
-					...modifierFN('j', 'w', '2', ['option', 'right_shift']),
-					...modifierFN('j', 'e', '3', ['option', 'right_shift']),
-					...modifierFN('j', 'r', '4', ['option', 'right_shift']),
-				],
+					// application shortcuts
+					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // ChatGPT
+					...modifierFN('j', 's', 's', ['option', 'control', 'left_command']), // sublime text
+					...modifierFN('j', 'd', 'd', ['option', 'control', 'left_command']), // sublime merge
+					...modifierFN('j', 't', 't', ['option', 'control', 'left_command']), // t3 code
+					...modifierFN('j', 'z', 'z', ['option', 'control', 'left_command']), // zen browser
+					...modifierFN('j', 'i', 'i', ['option', 'control', 'left_command']), // ghostty
+			],
 			},
 			{
 				description: 'Basic selection bindings',
