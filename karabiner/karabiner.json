@@ -5614,10 +5614,10 @@
                     }
                   },
                   {
-                    "key_code": "g",
+                    "key_code": "return_or_enter",
                     "modifiers": [
                       "control",
-                      "command"
+                      "option"
                     ]
                   }
                 ],
@@ -5641,10 +5641,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "g",
+                    "key_code": "return_or_enter",
                     "modifiers": [
                       "control",
-                      "command"
+                      "option"
                     ]
                   }
                 ],
@@ -5689,10 +5689,11 @@
                     }
                   },
                   {
-                    "key_code": "m",
+                    "key_code": "return_or_enter",
                     "modifiers": [
                       "control",
-                      "command"
+                      "option",
+                      "left_shift"
                     ]
                   }
                 ],
@@ -5716,10 +5717,86 @@
                 },
                 "to": [
                   {
-                    "key_code": "m",
+                    "key_code": "return_or_enter",
                     "modifiers": [
                       "control",
-                      "command"
+                      "option",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "g"
+                    },
+                    {
+                      "key_code": "comma"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "g_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 3000
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "g_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "g_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "control",
+                      "option"
                     ]
                   }
                 ],
