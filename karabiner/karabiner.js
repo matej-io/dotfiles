@@ -232,7 +232,7 @@ const DEFAULT_PROFILE = {
 					// copy enpass OTP
 					...modifierFN('j', 'h', 'c', ['option', 'left_command']),
 					// application shortcuts
-					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // ChatGPT
+					...modifierFN('j', 'c', 'c', ['option', 'control', 'left_command']), // ChatGPT
 					...modifierFN('j', 's', 's', ['option', 'control', 'left_command']), // sublime text
 					...modifierFN('j', 'd', 'd', ['option', 'control', 'left_command']), // sublime merge
 					...modifierFN('j', 't', 't', ['option', 'control', 'left_command']), // t3 code

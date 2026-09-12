@@ -4082,7 +4082,7 @@
                       "key_code": "j"
                     },
                     {
-                      "key_code": "a"
+                      "key_code": "c"
                     }
                   ],
                   "simultaneous_options": {
@@ -4109,7 +4109,7 @@
                     }
                   },
                   {
-                    "key_code": "a",
+                    "key_code": "c",
                     "modifiers": [
                       "option",
                       "control",
@@ -4128,7 +4128,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "a",
+                  "key_code": "c",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -4137,7 +4137,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "a",
+                    "key_code": "c",
                     "modifiers": [
                       "option",
                       "control",
