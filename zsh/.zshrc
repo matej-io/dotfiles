@@ -5,6 +5,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # homebrew/macos paths
 if [[ "$OSTYPE" == darwin* ]]; then
+  # Make `cd icloud` work from home without replacing an existing path.
+  if [[ -d "$HOME/Library/Mobile Documents/com~apple~CloudDocs" && ! -e "$HOME/icloud" && ! -L "$HOME/icloud" ]]; then
+    ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs" "$HOME/icloud"
+  fi
+
   export PATH="/opt/homebrew/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
   export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
@@ -128,4 +133,3 @@ export PATH="$HOME/.grok/bin:$PATH"
 fpath=(~/.grok/completions/zsh $fpath)
 autoload -Uz compinit && compinit -C
 # <<< grok installer <<<
-
