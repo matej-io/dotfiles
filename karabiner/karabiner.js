@@ -240,7 +240,7 @@ const DEFAULT_PROFILE = {
 					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // affinity
 					...modifierFN('j', 'm', 'm', ['option', 'control', 'left_command']), // mail
 					...modifierFN('j', 'r', 'f', ['option', 'control', 'left_command']), // finder
-					...modifierFN('j', 'l', 'f', ['option', 'control', 'left_command']), // finder
+					...modifierFN('j', 'l', 'l', ['option', 'control', 'left_command']), // finder
 					...modifierFN('j', 'v', 'v', ['option', 'control', 'left_command']), // vscodium
 					],
 			},

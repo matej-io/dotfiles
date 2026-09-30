@@ -4725,7 +4725,7 @@
                     }
                   },
                   {
-                    "key_code": "f",
+                    "key_code": "l",
                     "modifiers": [
                       "option",
                       "control",
@@ -4753,7 +4753,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "f",
+                    "key_code": "l",
                     "modifiers": [
                       "option",
                       "control",
