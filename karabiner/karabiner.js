@@ -232,16 +232,17 @@ const DEFAULT_PROFILE = {
 					// copy enpass OTP
 					...modifierFN('j', 'h', 'c', ['option', 'left_command']),
 					// application shortcuts
-					...modifierFN('j', 'c', 'c', ['option', 'control', 'left_command']), // ChatGPT
-					...modifierFN('j', 's', 's', ['option', 'control', 'left_command']), // sublime text
-					...modifierFN('j', 'd', 'd', ['option', 'control', 'left_command']), // sublime merge
-					...modifierFN('j', 't', 't', ['option', 'control', 'left_command']), // t3 code
-					...modifierFN('j', 'z', 'z', ['option', 'control', 'left_command']), // zen browser
-					...modifierFN('j', 'i', 'i', ['option', 'control', 'left_command']), // ghostty
+					...modifierFN('j', 'c', 'c', ['option', 'control', 'left_command']), // chat_gpt
+					...modifierFN('j', 's', 's', ['option', 'control', 'left_command']), // sublime_text
+					...modifierFN('j', 't', 't', ['option', 'control', 'left_command']), // t3_code
+					...modifierFN('j', 'z', 'z', ['option', 'control', 'left_command']), // zen_browser
+					...modifierFN('j', 'i', 'i', ['option', 'control', 'left_command']), // cmux
 					...modifierFN('j', 'a', 'a', ['option', 'control', 'left_command']), // affinity
 					...modifierFN('j', 'm', 'm', ['option', 'control', 'left_command']), // mail
 					...modifierFN('j', 'r', 'f', ['option', 'control', 'left_command']), // finder
-			],
+					...modifierFN('j', 'l', 'f', ['option', 'control', 'left_command']), // finder
+					...modifierFN('j', 'v', 'v', ['option', 'control', 'left_command']), // vscodium
+					],
 			},
 			{
 				description: 'Basic selection bindings',
