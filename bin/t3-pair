@@ -12,7 +12,8 @@ Generate a separate one-time pairing URL for each device on this server.
 Paste each URL into the corresponding T3 app's Add environment dialog.
 
 Environment overrides:
-  T3_PAIR_URL   Public server URL (default: https://code.hilma.net)
+  T3_PAIR_URL   Public server URL (default: https://code.hilma.net on Linux,
+                https://code2.hilma.net on macOS)
   T3_PAIR_TTL   Time allowed to use each link (default: 1h)
   T3CODE_HOME   Server data directory (default: ~/.t3)
 
@@ -22,7 +23,12 @@ HELP
   exit 0
 fi
 
-public_url=${T3_PAIR_URL:-https://code.hilma.net}
+if [[ $(uname -s) == Darwin ]]; then
+  default_url=https://code2.hilma.net
+else
+  default_url=https://code.hilma.net
+fi
+public_url=${T3_PAIR_URL:-$default_url}
 public_url=${public_url%/}
 case "$public_url" in
   https://*|http://*) ;;
