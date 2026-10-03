@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run on the T3 server: t3-pair zenbook zenmac zenphone zenpad
+# T3_PAIR_TTL controls the unused link lifetime, not the 30-day session.
+# Generated credentials are printed only; never commit them to this repo.
+if [[ $# -eq 0 || ${1:-} == --help || ${1:-} == -h ]]; then
+  cat <<'HELP'
+Usage: t3-pair LABEL [LABEL ...]
+
+Generate a separate one-time pairing URL for each device on this server.
+Paste each URL into the corresponding T3 app's Add environment dialog.
+
+Environment overrides:
+  T3_PAIR_URL   Public server URL (default: https://code.hilma.net)
+  T3_PAIR_TTL   Time allowed to use each link (default: 1h)
+  T3CODE_HOME   Server data directory (default: ~/.t3)
+
+Example:
+  t3-pair zenbook zenmac zenphone zenpad
+HELP
+  exit 0
+fi
+
+public_url=${T3_PAIR_URL:-https://code.hilma.net}
+public_url=${public_url%/}
+case "$public_url" in
+  https://*|http://*) ;;
+  *) echo 'T3_PAIR_URL must start with https:// or http://' >&2; exit 1 ;;
+esac
+
+if command -v t3 >/dev/null 2>&1; then
+  t3_command=(t3)
+elif command -v npx >/dev/null 2>&1; then
+  t3_command=(npx --yes t3@latest)
+else
+  echo 'Install T3 or Node.js with npx before running this script.' >&2
+  exit 1
+fi
+
+for label in "$@"; do
+  if [[ -z "$label" ]]; then
+    echo 'Device labels must not be empty.' >&2
+    exit 1
+  fi
+done
+
+for label in "$@"; do
+  output=$("${t3_command[@]}" pair \
+    --base-dir "${T3CODE_HOME:-$HOME/.t3}" \
+    --ttl "${T3_PAIR_TTL:-1h}" --label "$label")
+  pairing_url=$(printf '%s\n' "$output" | sed -n 's/^Pairing URL: //p')
+  case "$pairing_url" in
+    http*/pair\#token=*) ;;
+    *) echo "Could not parse T3 pairing URL for $label." >&2; exit 1 ;;
+  esac
+  printf '%s: %s/pair%s\n' "$label" "$public_url" "${pairing_url#*/pair}"
+done
