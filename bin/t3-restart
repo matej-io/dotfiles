@@ -1,0 +1,24 @@
+#!/bin/sh
+# Restart the T3 Code launch agent (kills the running server and starts it again).
+# Note: running this from inside a T3 session will drop that session's connection.
+#
+# Usage: t3-restart   (override label with T3_AGENT_LABEL)
+
+label=${T3_AGENT_LABEL:-com.t3tools.t3code.service}
+target="gui/$(id -u)/$label"
+
+if ! launchctl print "$target" >/dev/null 2>&1; then
+    plist="$HOME/Library/LaunchAgents/$label.plist"
+    if [ ! -f "$plist" ]; then
+        echo "launch agent $label not found" >&2
+        exit 1
+    fi
+    launchctl bootstrap "gui/$(id -u)" "$plist" || exit 1
+fi
+
+if launchctl kickstart -k "$target"; then
+    echo "restarted $label"
+else
+    echo "failed to restart $label" >&2
+    exit 1
+fi
