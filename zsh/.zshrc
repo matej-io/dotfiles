@@ -25,6 +25,9 @@ export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 export EDITOR=nano
 
+# Let gpg-agent pinentry prompt in the current terminal (pass, git signing).
+export GPG_TTY=$(tty)
+
 alias l='ls -al'
 alias g="git push -u origin"
 

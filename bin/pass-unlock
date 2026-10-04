@@ -1,0 +1,20 @@
+#!/bin/sh
+# Unlock the GPG key used by `pass` so tools like himalaya can read passwords
+# without prompting. The passphrase stays cached in gpg-agent for the TTL set
+# in ~/.gnupg/gpg-agent.conf (default-cache-ttl / max-cache-ttl).
+#
+# Usage: pass-unlock [entry]   (default: email/hilma)
+
+entry=${1:-email/hilma}
+
+GPG_TTY=$(tty)
+export GPG_TTY
+# Point pinentry at this terminal (needed over SSH / after switching terminals).
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+if pass show "$entry" >/dev/null; then
+    echo "pass unlocked"
+else
+    echo "pass unlock failed" >&2
+    exit 1
+fi
