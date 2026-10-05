@@ -35,7 +35,33 @@ case "$public_url" in
   *) echo 'T3_PAIR_URL must start with https:// or http://' >&2; exit 1 ;;
 esac
 
-if command -v t3 >/dev/null 2>&1; then
+# Match the running server: a globally installed CLI may use an older database.
+server_executable=""
+if command -v python3 >/dev/null 2>&1; then
+  server_executable=$(python3 - "${T3CODE_HOME:-$HOME/.t3}/userdata/server-runtime.json" <<'PYTHON'
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+try:
+    runtime = json.loads(Path(sys.argv[1]).read_text())
+    pid = int(runtime["pid"])
+    executable = subprocess.check_output(
+        ["ps", "-p", str(pid), "-o", "comm="], text=True
+    ).strip()
+    if Path(executable).name == "t3" and os.access(executable, os.X_OK):
+        print(executable)
+except (OSError, ValueError, KeyError, subprocess.CalledProcessError):
+    pass
+PYTHON
+  )
+fi
+
+if [[ -n "$server_executable" ]]; then
+  t3_command=("$server_executable")
+elif command -v t3 >/dev/null 2>&1; then
   t3_command=(t3)
 elif command -v npx >/dev/null 2>&1; then
   t3_command=(npx --yes t3@latest)
