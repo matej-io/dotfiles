@@ -1,8 +1,28 @@
 #!/bin/sh
-# Restart the T3 Code launch agent (kills the running server and starts it again).
+# Restart the T3 Code service (kills the running server and starts it again).
 # Note: running this from inside a T3 session will drop that session's connection.
 #
-# Usage: t3-restart   (override label with T3_AGENT_LABEL)
+# Usage: t3-restart
+# Linux: override the systemd user unit with T3_SYSTEMD_UNIT.
+# macOS: override the launch agent label with T3_AGENT_LABEL.
+
+case "$(uname -s)" in
+    Linux)
+        unit=${T3_SYSTEMD_UNIT:-t3-code.service}
+        if systemctl --user restart "$unit"; then
+            echo "restarted $unit"
+            exit 0
+        else
+            echo "failed to restart $unit" >&2
+            exit 1
+        fi
+        ;;
+    Darwin) ;;
+    *)
+        echo "t3-restart supports Linux and macOS only" >&2
+        exit 1
+        ;;
+esac
 
 label=${T3_AGENT_LABEL:-com.t3tools.t3code.service}
 target="gui/$(id -u)/$label"
