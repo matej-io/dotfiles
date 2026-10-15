@@ -1,0 +1,222 @@
+#!/usr/bin/env python3
+"""List a repository's linked Git worktrees with the state of their T3 threads."""
+
+import argparse
+import os
+import sqlite3
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+USAGE_EPILOG = """\
+states:
+  active     a thread using it is neither settled nor snoozed
+  snoozed    every unsettled thread using it is snoozed
+  settled    every thread using it is settled, archived or deleted
+  untracked  no T3 thread uses it
+
+Subagent threads take the state of their root thread. A worktree with
+uncommitted changes is marked dirty and is only removed with --force.
+
+Reads T3's state database ($T3CODE_HOME/userdata/statev2.sqlite, default
+~/.t3) read-only; nothing in T3 is changed.
+"""
+
+STATE_ORDER = ["active", "snoozed", "settled", "untracked"]
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        prog="t3-worktrees",
+        description=__doc__,
+        epilog=USAGE_EPILOG,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument("repository", nargs="?", default=".")
+    parser.add_argument("--all-projects", action="store_true",
+                        help="check every T3 project instead of one repository")
+    parser.add_argument("--remove-settled", action="store_true",
+                        help="remove worktrees whose threads are all settled")
+    parser.add_argument("--include-untracked", action="store_true",
+                        help="with --remove-settled, also remove untracked worktrees")
+    parser.add_argument("--force", action="store_true",
+                        help="also remove worktrees with uncommitted changes")
+    parser.add_argument("-n", "--dry-run", action="store_true",
+                        help="show what would be removed without changing anything")
+    parser.add_argument("-y", "--yes", action="store_true",
+                        help="do not ask for confirmation")
+    return parser.parse_args()
+
+
+def git(repository, *args):
+    return subprocess.run(["git", "-C", str(repository), *args],
+                          check=True, capture_output=True, text=True).stdout
+
+
+def real(path):
+    return os.path.realpath(path)
+
+
+def list_worktrees(repository):
+    """Return (primary, [(path, branch)]) for a repository."""
+    entries, current = [], {}
+    for field in git(repository, "worktree", "list", "--porcelain", "-z").split("\0"):
+        if not field:
+            if current:
+                entries.append(current)
+            current = {}
+        elif " " in field:
+            key, value = field.split(" ", 1)
+            current[key] = value
+        else:
+            current[field] = True
+    if current:
+        entries.append(current)
+    if not entries:
+        return None, []
+    linked = [(e["worktree"], e.get("branch", "").removeprefix("refs/heads/") or "(detached)")
+              for e in entries[1:]]
+    return entries[0]["worktree"], linked
+
+
+def is_dirty(path):
+    try:
+        return bool(git(path, "status", "--porcelain", "--untracked-files=normal").strip())
+    except subprocess.CalledProcessError:
+        return False
+
+
+def load_threads():
+    """Return {worktree realpath: [(title, state)]} from T3's state database."""
+    home = Path(os.environ.get("T3CODE_HOME", Path.home() / ".t3"))
+    database = home / "userdata" / "statev2.sqlite"
+    if not database.exists():
+        sys.exit(f"T3 state database not found: {database}")
+
+    connection = sqlite3.connect(f"file:{database}?mode=ro", uri=True)
+    rows = connection.execute("""
+        SELECT thread_id, title, archived_at, deleted_at,
+               json_extract(payload_json, '$.worktreePath'),
+               json_extract(payload_json, '$.settledOverride'),
+               json_extract(payload_json, '$.snoozedUntil'),
+               json_extract(payload_json, '$.lineage.rootThreadId')
+        FROM orchestration_v2_projection_threads
+    """).fetchall()
+    connection.close()
+
+    now = datetime.now(timezone.utc)
+
+    def own_state(archived, deleted, settled, snoozed_until):
+        if archived or deleted or settled == "settled":
+            return "settled"
+        if snoozed_until and datetime.fromisoformat(snoozed_until.replace("Z", "+00:00")) > now:
+            return "snoozed"
+        return "active"
+
+    states = {row[0]: own_state(row[2], row[3], row[5], row[6]) for row in rows}
+    by_worktree = {}
+    for thread_id, title, *_, worktree, _settled, _snoozed, root in rows:
+        if not worktree:
+            continue
+        state = states.get(root or thread_id, states[thread_id])
+        by_worktree.setdefault(real(worktree), []).append((title, state))
+    return by_worktree
+
+
+def project_roots():
+    home = Path(os.environ.get("T3CODE_HOME", Path.home() / ".t3"))
+    connection = sqlite3.connect(f"file:{home / 'userdata' / 'statev2.sqlite'}?mode=ro", uri=True)
+    roots = [r[0] for r in connection.execute(
+        "SELECT workspace_root FROM projection_projects WHERE deleted_at IS NULL ORDER BY title")]
+    connection.close()
+    return roots
+
+
+def worktree_state(threads):
+    if not threads:
+        return "untracked"
+    return min((state for _, state in threads), key=STATE_ORDER.index)
+
+
+def main():
+    args = parse_args()
+    threads = load_threads()
+
+    if args.all_projects:
+        repositories = [r for r in project_roots()
+                        if subprocess.run(["git", "-C", r, "rev-parse"],
+                                          capture_output=True).returncode == 0]
+    else:
+        if subprocess.run(["git", "-C", args.repository, "rev-parse", "--is-inside-work-tree"],
+                          capture_output=True).returncode != 0:
+            sys.exit(f"Not inside a Git working tree: {args.repository}")
+        repositories = [args.repository]
+
+    removable_states = {"settled"} | ({"untracked"} if args.include_untracked else set())
+    to_remove = []  # (primary, path)
+    seen_primaries = set()
+
+    for repository in repositories:
+        primary, linked = list_worktrees(repository)
+        if primary is None or real(primary) in seen_primaries:
+            continue
+        seen_primaries.add(real(primary))
+        print(f"{primary}")
+        if not linked:
+            print("  (no linked worktrees)\n")
+            continue
+
+        rows = []
+        for path, branch in linked:
+            matched = threads.get(real(path), [])
+            state = worktree_state(matched)
+            dirty = is_dirty(path)
+            rows.append((STATE_ORDER.index(state), path, branch, state, dirty, matched))
+        rows.sort()
+        name_width = max(len(Path(r[1]).name) for r in rows)
+        branch_width = max(len(r[2]) for r in rows)
+
+        for _, path, branch, state, dirty, matched in rows:
+            flag = "dirty" if dirty else ""
+            # Name the thread that decides the state, e.g. the one keeping it active.
+            titles = [t for t, s in matched if s == state] or [t for t, _ in matched]
+            label = f"  {titles[0]}" + (f" (+{len(titles) - 1})" if len(titles) > 1 else "") if titles else ""
+            print(f"  {state:<9}  {Path(path).name:<{name_width}}  {branch:<{branch_width}}  {flag:<5}{label}".rstrip())
+            if args.remove_settled and state in removable_states:
+                if dirty and not args.force:
+                    continue
+                to_remove.append((primary, path))
+
+        counts = {s: sum(1 for r in rows if r[3] == s) for s in STATE_ORDER}
+        print("  " + ", ".join(f"{n} {s}" for s, n in counts.items() if n) + "\n")
+
+    if not args.remove_settled:
+        return
+    if not to_remove:
+        print("Nothing to remove.")
+        return
+
+    print("Worktrees to remove:")
+    for _, path in to_remove:
+        print(f"  {path}")
+    if args.dry_run:
+        return
+    if not args.yes:
+        if not sys.stdin.isatty():
+            sys.exit("Refusing to remove worktrees without confirmation; use --yes.")
+        reply = input("Remove these worktrees? [y/N] ")
+        if reply.strip().lower() not in ("y", "yes"):
+            return
+
+    for primary, path in to_remove:
+        print(f"Removing {path}")
+        # Run from the primary tree so this also works when invoked from a linked tree.
+        git(primary, "worktree", "remove", "--force", "--force", path)
+    for primary in {p for p, _ in to_remove}:
+        git(primary, "worktree", "prune")
+    print(f"Removed {len(to_remove)} linked worktree(s).")
+
+
+if __name__ == "__main__":
+    main()
