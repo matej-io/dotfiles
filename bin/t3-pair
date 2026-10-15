@@ -48,9 +48,13 @@ import sys
 try:
     runtime = json.loads(Path(sys.argv[1]).read_text())
     pid = int(runtime["pid"])
-    executable = subprocess.check_output(
-        ["ps", "-p", str(pid), "-o", "comm="], text=True
-    ).strip()
+    # Linux reports the thread name (node-MainThread) as comm, not the path.
+    try:
+        executable = os.readlink(f"/proc/{pid}/exe")
+    except OSError:
+        executable = subprocess.check_output(
+            ["ps", "-p", str(pid), "-o", "comm="], text=True
+        ).strip()
     if Path(executable).name == "t3" and os.access(executable, os.X_OK):
         print(executable)
 except (OSError, ValueError, KeyError, subprocess.CalledProcessError):
