@@ -1,0 +1,17 @@
+#!/bin/sh
+# Let codesign use the login keychain's signing keys without an access prompt
+# (fixes "errSecInternalComponent" in non-interactive Xcode archives).
+# Re-run after importing or regenerating a signing certificate.
+# `security` prompts for the keychain password itself, so it never ends up in
+# shell history or the process list.
+#
+# Usage: codesign-allow [keychain]   (default: login keychain)
+
+keychain=${1:-$HOME/Library/Keychains/login.keychain-db}
+
+if security set-key-partition-list -S apple-tool:,apple:,codesign: -s "$keychain" >/dev/null; then
+    echo "codesign access granted for signing keys in $keychain"
+else
+    echo "failed to update key partition list" >&2
+    exit 1
+fi
