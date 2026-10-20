@@ -1,0 +1,32 @@
+{
+  "name": "Calorie",
+  "bundleId": "us.zenpl.calorie",
+  "teamId": "6H56BMGV4C",
+  "project": "apps/calorie/Calorie.xcodeproj",
+  "scheme": "Calorie",
+  "target": "Calorie",
+  "configuration": "Release",
+  "appDir": "apps/calorie",
+  "appName": "Calorie",
+  "tagPrefix": "testflight/calorie-",
+  "artifactDir": ".release/calorie",
+  "tokenFile": "~/.config/us.zenpl/op-zenplus-dev.token",
+  "preflight": [
+    {
+      "command": "swift",
+      "args": ["test"],
+      "cwd": "apps/calorie"
+    }
+  ],
+  "requiredFiles": ["apps/calorie/Calorie/Resources/calorie.db"],
+  "archiveFiles": ["calorie.db"],
+  "entitlements": {
+    "com.apple.developer.team-identifier": "6H56BMGV4C",
+    "application-identifier": "6H56BMGV4C.us.zenpl.calorie",
+    "com.apple.developer.ubiquity-kvstore-identifier": "6H56BMGV4C.us.zenpl.calorie"
+  },
+  "schemaVersion": 1,
+  "secretsFile": "config/testflight.secrets.json",
+  "exportOptions": "config/testflight-export.plist",
+  "uploadOptions": "config/testflight-upload.plist"
+}

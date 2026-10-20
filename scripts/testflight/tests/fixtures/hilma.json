@@ -1,0 +1,19 @@
+{
+  "name": "Hilma",
+  "bundleId": "com.viewglobal.luminapp",
+  "teamId": "43KYYF2RZM",
+  "workspace": "apps/hilma-ios-app/Preview.xcworkspace",
+  "scheme": "Hilma",
+  "target": "Hilma",
+  "configuration": "AppStore",
+  "appDir": "apps/hilma-ios-app",
+  "appName": "Hilma",
+  "tagPrefix": "testflight/",
+  "artifactDir": ".local/testflight",
+  "tokenFile": "~/.config/hilma/op-hilma-platform-dev.token",
+  "podsDir": "apps/hilma-ios-app",
+  "schemaVersion": 1,
+  "secretsFile": "config/testflight.secrets.json",
+  "exportOptions": "config/testflight-export.plist",
+  "uploadOptions": "config/testflight-upload.plist"
+}

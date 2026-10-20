@@ -1,0 +1,25 @@
+{
+  "name": "iSum",
+  "bundleId": "com.kerubin.iSum",
+  "teamId": "6H56BMGV4C",
+  "project": "apps/isum-ios-app/iSum.xcodeproj",
+  "scheme": "iSum",
+  "target": "iSum",
+  "configuration": "Release",
+  "appDir": "apps/isum-ios-app",
+  "appName": "iSum",
+  "tagPrefix": "testflight/",
+  "artifactDir": ".local/testflight",
+  "tokenFile": "~/.config/us.zenpl/op-zenplus-dev.token",
+  "preflight": [
+    {
+      "command": "sh",
+      "args": ["apps/isum-ios-app/Tests/run-search-tests.sh"],
+      "cwd": "."
+    }
+  ],
+  "schemaVersion": 1,
+  "secretsFile": "config/testflight.secrets.json",
+  "exportOptions": "config/testflight-export.plist",
+  "uploadOptions": "config/testflight-upload.plist"
+}
