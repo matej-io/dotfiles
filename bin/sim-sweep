@@ -1,0 +1,150 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+    cat <<'EOF'
+Usage: sim-sweep [--dry-run] [--yes] [--all] [--older-than HOURS] [--prefix PREFIX]
+
+Shut down and delete iOS simulators left behind by agents. Only simulators
+whose name starts with the agent prefix (default "agent-", e.g.
+"agent-hilma-PRO-325") are considered; every other simulator is left alone.
+
+By default a simulator is removed only when it has not been used (booted) for
+at least 24 hours, so agents that are still working keep theirs.
+
+Options:
+  -n, --dry-run           Show what would be removed without changing anything
+  -y, --yes               Do not ask for confirmation
+  -a, --all               Remove matching simulators regardless of age
+  -o, --older-than HOURS  Minimum hours since last use (default: 24)
+  -p, --prefix PREFIX     Name prefix of agent simulators (default: agent-)
+  -h, --help              Show this help
+EOF
+}
+
+dry_run=false
+assume_yes=false
+older_than=24
+prefix=agent-
+
+while (($#)); do
+    case $1 in
+        -n|--dry-run)
+            dry_run=true
+            ;;
+        -y|--yes)
+            assume_yes=true
+            ;;
+        -a|--all)
+            older_than=0
+            ;;
+        -o|--older-than)
+            if [[ ! ${2:-} =~ ^[0-9]+$ ]]; then
+                printf '%s requires a whole number of hours.\n' "$1" >&2
+                exit 2
+            fi
+            older_than=$2
+            shift
+            ;;
+        -p|--prefix)
+            if [[ -z ${2:-} ]]; then
+                printf '%s requires a non-empty prefix.\n' "$1" >&2
+                exit 2
+            fi
+            prefix=$2
+            shift
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        *)
+            printf 'Unknown option: %s\n' "$1" >&2
+            usage >&2
+            exit 2
+            ;;
+    esac
+    shift
+done
+
+for tool in xcrun jq; do
+    if ! command -v "$tool" >/dev/null; then
+        printf 'Missing required tool: %s\n' "$tool" >&2
+        exit 1
+    fi
+done
+
+# One tab-separated line per matching simulator: udid, state, hours since last
+# use, size in GB, last-used timestamp, and name. A simulator that was never
+# booted has no lastUsedAt and is treated as stale.
+candidates=()
+while IFS= read -r line; do
+    candidates+=("$line")
+done < <(
+    xcrun simctl list devices --json | jq -r \
+        --arg prefix "$prefix" \
+        --argjson older_than "$older_than" \
+        '
+        [.devices[][]]
+        | map(select(.name | startswith($prefix)))
+        | map(. + {
+            hours: (if .lastUsedAt then ((now - (.lastUsedAt | fromdateiso8601)) / 3600 | floor) else null end)
+          })
+        | map(select(.hours == null or .hours >= $older_than))
+        | sort_by(.name)[]
+        | [
+            .udid,
+            .state,
+            (if .hours == null then "never" else "\(.hours)h ago" end),
+            "\(((.dataPathSize // 0) / 1e8 | round) / 10) GB",
+            .name
+          ]
+        | @tsv
+        '
+)
+
+if ((${#candidates[@]} == 0)); then
+    if ((older_than > 0)); then
+        printf 'No "%s*" simulators unused for %d hours or more.\n' "$prefix" "$older_than"
+    else
+        printf 'No "%s*" simulators found.\n' "$prefix"
+    fi
+    exit 0
+fi
+
+printf 'Simulators to remove:\n'
+for line in "${candidates[@]}"; do
+    IFS=$'\t' read -r udid state last_used size name <<<"$line"
+    printf '  %-40s %-9s used %-10s %8s  %s\n' "$name" "$state" "$last_used" "$size" "$udid"
+done
+
+if [[ $dry_run == true ]]; then
+    exit 0
+fi
+
+if [[ $assume_yes == false ]]; then
+    if [[ ! -t 0 ]]; then
+        printf 'Refusing to remove simulators without confirmation; use --yes.\n' >&2
+        exit 1
+    fi
+
+    read -r -p 'Shut down and delete these simulators? [y/N] ' reply
+    [[ $reply == [yY] || $reply == [yY][eE][sS] ]] || exit 0
+fi
+
+removed=0
+for line in "${candidates[@]}"; do
+    IFS=$'\t' read -r udid state _ _ name <<<"$line"
+    if [[ $state != Shutdown ]]; then
+        xcrun simctl shutdown "$udid" 2>/dev/null || true
+    fi
+    if xcrun simctl delete "$udid"; then
+        printf 'Deleted %s\n' "$name"
+        removed=$((removed + 1))
+    else
+        printf 'Could not delete %s (%s)\n' "$name" "$udid" >&2
+    fi
+done
+
+printf 'Removed %d simulator(s).\n' "$removed"
