@@ -226,7 +226,7 @@ const DEFAULT_PROFILE = {
 					// cycle trough applications backwards
 					...modifierFN('w', 'j', 'tab', ['left_command', 'left_shift']),
 					// open 1password
-					...modifierFN('j', 'f', 'spacebar', ['left_shift', 'left_command']),
+					...modifierFN('j', 'f', 'backslash', ['option', 'left_command']),
 					// copy enpass password
 					...modifierFN('j', 'g', 'c', ['left_shift', 'left_command']),
 					// copy enpass OTP

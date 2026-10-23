@@ -3884,9 +3884,9 @@
                     }
                   },
                   {
-                    "key_code": "spacebar",
+                    "key_code": "backslash",
                     "modifiers": [
-                      "left_shift",
+                      "option",
                       "left_command"
                     ]
                   }
@@ -3911,9 +3911,9 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar",
+                    "key_code": "backslash",
                     "modifiers": [
-                      "left_shift",
+                      "option",
                       "left_command"
                     ]
                   }
