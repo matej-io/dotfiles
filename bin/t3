@@ -1,0 +1,13 @@
+#!/bin/sh
+# Run the t3 CLI version the background service uses (~/.t3/runtime/versions/<v>/t3).
+# The path changes with every `t3 update`, so resolve it from service-state.json.
+# Falls back to `npx t3@latest` on machines without an installed service.
+
+home=${T3CODE_HOME:-$HOME/.t3}
+version=$(sed -n 's/.*"activeVersion": *"\([^"]*\)".*/\1/p' "$home/runtime/service-state.json" 2>/dev/null)
+binary="$home/runtime/versions/$version/t3"
+
+if [ -n "$version" ] && [ -x "$binary" ]; then
+    exec "$binary" "$@"
+fi
+exec npx --yes t3@latest "$@"
