@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+"""Clone and bisync an rclone folder with local-only configuration."""
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+META = ".cloud.json"
+
+
+def fail(message):
+    raise ValueError(message)
+
+
+def find_root():
+    here = Path.cwd().resolve()
+    for directory in (here, *here.parents):
+        if (directory / META).exists():
+            return directory
+    fail("No .cloud.json found here or in parent directories. Run cloud clone first.")
+
+
+def write_config(root, config):
+    # Atomic replacement; keep interrupted writes out of the synced tree.
+    import tempfile
+    with tempfile.NamedTemporaryFile(mode="w", dir=root, prefix=".cloud.json.",
+                                     delete=False) as handle:
+        temporary = Path(handle.name)
+        json.dump(config, handle, indent=2)
+        handle.write("\n")
+    try:
+        temporary.replace(root / META)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def run_sync(root, config, resync=False, dry_run=False):
+    if not config.get("initialized") and not resync:
+        fail("Initial clone did not finish. Inspect the files, then run cloud sync --resync.")
+    remote = config.get("remote")
+    if not isinstance(remote, str) or ":" not in remote or remote.startswith("-"):
+        fail("Invalid remote in .cloud.json.")
+    if config.get("local") != str(root):
+        fail("This folder was moved or copied. Restore its original location before syncing.")
+    state_base = Path(os.environ.get("XDG_STATE_HOME", str(Path.home() / ".local/state")))
+    key = hashlib.sha256((remote + "\0" + str(root)).encode()).hexdigest()
+    state = state_base / "cloud" / key
+    state.mkdir(parents=True, exist_ok=True)
+    # Both metadata and interrupted atomic writes are excluded at every depth.
+    command = ["rclone", "bisync", remote, str(root), "--workdir", str(state),
+               "--exclude", META, "--exclude", META + ".*", "--verbose"]
+    if resync:
+        command.append("--resync")
+    if dry_run:
+        command.append("--dry-run")
+    result = subprocess.run(command)
+    if result.returncode:
+        print("cloud: Sync failed; no automatic resync was attempted. Review rclone's error above.",
+              file=sys.stderr)
+        return result.returncode
+    if not dry_run and not config.get("initialized"):
+        config["initialized"] = True
+        write_config(root, config)
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    commands = parser.add_subparsers(dest="command", required=True)
+    clone = commands.add_parser("clone", help="Download and initialize an empty local folder")
+    clone.add_argument("remote", help="e.g. icloud:ZEN+/Miranda/lah-foundation")
+    clone.add_argument("destination", nargs="?", help="Defaults to the remote folder's name")
+    sync = commands.add_parser("sync", help="Sync the enclosing cloud folder in both directions")
+    sync.add_argument("--dry-run", action="store_true", help="Preview changes without transferring files")
+    sync.add_argument("--resync", action="store_true", help="Explicitly rebuild bisync state (recovery only)")
+    args = parser.parse_args()
+    if not shutil.which("rclone"):
+        fail("rclone is not installed or is not on PATH.")
+    if args.command == "clone":
+        remote = args.remote.rstrip("/")
+        if ":" not in remote or remote.startswith("-"):
+            fail("Use an rclone remote path, such as icloud:Projects/Admin.")
+        name = remote.split(":", 1)[1].rsplit("/", 1)[-1]
+        if not args.destination and name in ("", ".", ".."):
+            fail("Specify a destination when cloning a remote root.")
+        root = Path(args.destination or name).expanduser().resolve()
+        if root.exists() and (not root.is_dir() or any(root.iterdir())):
+            fail("Destination must be empty. Existing files will not be adopted or overwritten.")
+        if any((parent / META).exists() for parent in root.parents):
+            fail("Cannot clone inside another cloud-managed folder.")
+        # Check remote access before creating local configuration.
+        check = subprocess.run(["rclone", "lsf", remote, "--max-depth", "1"],
+                               stdout=subprocess.DEVNULL)
+        if check.returncode:
+            return check.returncode
+        root.mkdir(parents=True, exist_ok=True)
+        config = {"version": 1, "remote": remote, "local": str(root), "initialized": False}
+        write_config(root, config)
+        return run_sync(root, config, resync=True)
+    root = find_root()
+    with (root / META).open() as handle:
+        config = json.load(handle)
+    if not isinstance(config, dict) or config.get("version") != 1:
+        fail("Unsupported .cloud.json format.")
+    return run_sync(root, config, resync=args.resync, dry_run=args.dry_run)
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except (ValueError, OSError) as error:
+        print(f"cloud: {error}", file=sys.stderr)
+        sys.exit(1)
+    except KeyboardInterrupt:
+        print("\ncloud: Interrupted. Review the next sync's result before attempting recovery.", file=sys.stderr)
+        sys.exit(130)
