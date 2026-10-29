@@ -5914,6 +5914,81 @@
                   },
                   "simultaneous": [
                     {
+                      "key_code": "h"
+                    },
+                    {
+                      "key_code": "k"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "h_mod",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 3000
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "h_mod",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "h_mod",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
                       "key_code": "g"
                     },
                     {
@@ -7032,7 +7107,7 @@
                   {
                     "key_code": "c",
                     "modifiers": [
-                      "right_command"
+                      "left_command"
                     ]
                   },
                   {
@@ -7088,7 +7163,7 @@
                   {
                     "key_code": "c",
                     "modifiers": [
-                      "right_command"
+                      "left_command"
                     ]
                   },
                   {

@@ -332,6 +332,7 @@ const DEFAULT_PROFILE = {
 				manipulators: [
 					...modifierFN('g', 'i', 'return_or_enter', ['control', 'option']),
 					...modifierFN('g', 'k', 'return_or_enter', ['control', 'option', 'left_shift']),
+					...modifierFN('h', 'k', 'hyphen', ['control', 'option']),
 					...modifierFN('g', 'comma', 'c', ['control', 'option']),
 				],
 			},
@@ -443,7 +444,7 @@ const DEFAULT_PROFILE = {
 						},
 						{
 							key_code: 'c',
-							modifiers: ['right_command'],
+							modifiers: ['left_command'],
 						},
 						{
 							key_code: 'left_arrow',
