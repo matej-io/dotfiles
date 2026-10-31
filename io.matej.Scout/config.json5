@@ -1,0 +1,47 @@
+// Scout configuration (JSON5: comments, unquoted keys, single quotes and trailing commas are fine)
+//
+// Scout rereads this file when you switch back to it, or with Scout › Reload Configuration (⇧⌘,).
+// Uncomment a line to change a setting; leaving it out (or setting it to null) keeps the default.
+{
+  // Finder-style options. The defaults follow your Finder settings, and the
+  // View menu toggles still work until this file is next reloaded.
+  // showHiddenFiles: false,
+  // foldersFirst: false,
+  // showPathBar: false,
+  // showStatusBar: true,
+  // showTags: true,
+  // showRecents: true,
+
+  // The folders under Favourites in the sidebar, in order. ~ is your home folder.
+  // When set, this list replaces the sidebar's on every reload; folders dragged
+  // in or out of the sidebar last until then.
+  // favorites: ["/Applications", "~/Desktop", "~/Documents", "~/Downloads"],
+  favorites: ["/Applications", "~/Desktop", "~/Projects", "~/Documents", "~/Downloads"],
+
+  // How folders open until you pick a view for them: "icon", "list", "column" or "gallery".
+  // Each folder remembers the view you last used in it.
+  // defaultView: "list",
+
+  // Where a new search looks: "thisMac", "currentFolder" or "previous".
+  // searchScope: "thisMac",
+
+  // Check for Scout updates automatically.
+  // autoUpdate: true,
+
+  // Open in Terminal
+  //
+  // terminal picks the app: "terminal" (the default), "iterm", "ghostty", "warp", "kitty",
+  // "wezterm", "alacritty" or "cmux". Any other value is used as an app name, which
+  // works for local folders only.
+  // terminal: "ghostty",
+  //
+  // terminalCommand replaces that with your own command, run by your login shell
+  // with these variables set:
+  //   SCOUT_DIR      the local folder (empty for SSH folders)
+  //   SCOUT_HOST     the SSH host (empty for local folders)
+  //   SCOUT_PATH     the folder’s path, on the Mac or on the host
+  //   SCOUT_COMMAND  a shell command that starts a shell in the folder (via ssh for SSH folders)
+  // terminalCommand: "open -a Ghostty \"$SCOUT_DIR\"",
+  // terminalCommand: "~/.config/io.matej.Scout/open-terminal.sh",
+  terminalCommand: "~/.config/io.matej.Scout/open-in-cmux.sh",
+}
