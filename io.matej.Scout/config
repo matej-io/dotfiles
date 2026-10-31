@@ -1,0 +1,39 @@
+# Scout configuration
+#
+# One `key = value` per line; lines starting with # are comments.
+# Scout rereads this file when you switch back to it, or with Scout › Reload Configuration (⇧⌘,).
+# Uncomment a line to change a setting; leaving it out keeps the default.
+
+# Finder-style options. The defaults follow your Finder settings, and the
+# View menu toggles still work until this file is next reloaded.
+# show-hidden-files = false
+# folders-first = false
+# show-path-bar = false
+# show-status-bar = true
+# show-tags = true
+# show-recents = true
+
+# Where a new search looks: this-mac, current-folder or previous
+# search-scope = this-mac
+
+# Check for Scout updates automatically.
+# auto-update = true
+
+# Open in Terminal
+#
+# terminal picks the app: terminal (the default), iterm, ghostty, warp, kitty,
+# wezterm, alacritty or cmux. Any other value is used as an app name, which
+# works for local folders only.
+# terminal = ghostty
+#
+# terminal-command replaces that with your own command, run by your login shell
+# with these variables set:
+#   SCOUT_DIR      the local folder (empty for SSH folders)
+#   SCOUT_HOST     the SSH host (empty for local folders)
+#   SCOUT_PATH     the folder’s path, on the Mac or on the host
+#   SCOUT_COMMAND  a shell command that starts a shell in the folder (via ssh for SSH folders)
+# terminal-command = open -a Ghostty "$SCOUT_DIR"
+# terminal-command = ~/.config/io.matej.Scout/open-terminal.sh
+
+
+terminal-command = ~/.config/io.matej.Scout/open-in-cmux.sh
