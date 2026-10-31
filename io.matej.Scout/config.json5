@@ -16,7 +16,7 @@
   // When set, this list replaces the sidebar's on every reload; folders dragged
   // in or out of the sidebar last until then.
   // favorites: ["/Applications", "~/Desktop", "~/Documents", "~/Downloads"],
-  favorites: ["/Applications", "~/Desktop", "~/Projects", "~/Documents", "~/Downloads"],
+  favorites: ["/Applications", "~/Desktop", "~/Projects", "~/Projects/hilma-workspace", "~/Documents", "~/Downloads"],
 
   // How folders open until you pick a view for them: "icon", "list", "column" or "gallery".
   // Each folder remembers the view you last used in it.
