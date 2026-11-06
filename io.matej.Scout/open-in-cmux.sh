@@ -3,9 +3,9 @@
 # "mac" for folders on this Mac, the workspace named after the host for SSH folders.
 # Falls back to a new workspace when there's no such workspace.
 #
-# cmux only lets processes it started use its socket. Allow Scout in cmux.json:
-#   "automation": { "socketControlMode": "password", "socketPassword": "…" }
-# (the cmux CLI picks up the saved password), or "allowAll".
+# Allow Scout to control cmux without a password in ~/.config/cmux/cmux.json:
+#   "automation": { "socketControlMode": "automation" }
+# This also allows other processes running as your user to control cmux.
 
 cmux=/Applications/cmux.app/Contents/Resources/bin/cmux
 export CMUX_QUIET=1
