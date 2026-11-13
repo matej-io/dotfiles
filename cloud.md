@@ -27,6 +27,10 @@ periodic syncing. Deletions propagate both ways. Keep backups and avoid editing
 the same file on both devices between runs; bisync preserves conflicting versions
 for manual resolution rather than merging their contents.
 
+Bisync aborts when a run would delete more than half the files on either side
+(for example after moving many files into a subfolder). Once `cloud sync --dry-run`
+confirms the deletions are intended, run `cloud sync --force`.
+
 The local `.cloud.json` records the remote and original local path. The wrapper
 excludes it (and its temporary files) from transfers. Bisync state lives under
 `${XDG_STATE_HOME:-~/.local/state}/cloud`, outside the project. Don't remove this

@@ -39,7 +39,7 @@ def write_config(root, config):
         temporary.unlink(missing_ok=True)
 
 
-def run_sync(root, config, resync=False, dry_run=False):
+def run_sync(root, config, resync=False, dry_run=False, force=False):
     if not config.get("initialized") and not resync:
         fail("Initial clone did not finish. Inspect the files, then run cloud sync --resync.")
     remote = config.get("remote")
@@ -58,6 +58,9 @@ def run_sync(root, config, resync=False, dry_run=False):
         command.append("--resync")
     if dry_run:
         command.append("--dry-run")
+    if force:
+        # Bypass bisync's --max-delete safety check (default: abort if >50% deleted).
+        command.append("--force")
     result = subprocess.run(command)
     if result.returncode:
         print("cloud: Sync failed; no automatic resync was attempted. Review rclone's error above.",
@@ -77,6 +80,8 @@ def main():
     clone.add_argument("destination", nargs="?", help="Defaults to the remote folder's name")
     sync = commands.add_parser("sync", help="Sync the enclosing cloud folder in both directions")
     sync.add_argument("--dry-run", action="store_true", help="Preview changes without transferring files")
+    sync.add_argument("--force", action="store_true",
+                      help="Allow syncing even when many files are deleted (bypasses --max-delete)")
     sync.add_argument("--resync", action="store_true", help="Explicitly rebuild bisync state (recovery only)")
     args = parser.parse_args()
     if not shutil.which("rclone"):
@@ -107,7 +112,8 @@ def main():
         config = json.load(handle)
     if not isinstance(config, dict) or config.get("version") != 1:
         fail("Unsupported .cloud.json format.")
-    return run_sync(root, config, resync=args.resync, dry_run=args.dry_run)
+    return run_sync(root, config, resync=args.resync, dry_run=args.dry_run,
+                    force=args.force)
 
 
 if __name__ == "__main__":
